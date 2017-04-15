@@ -1,8 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-console.log(BrowserRouter);
+import Home from './home/Home';
 
-const App = () => <h1> Hello World </h1>
-
+const App = () => (
+  <Router> 
+    <Route path="/" component={Home} />
+  </Router>
+)
 
 export default App;
