@@ -16,7 +16,7 @@ class Home extends React.Component {
   }
   render() {
     return(
-      <h1> Hello world {this.props.currentUser.username}</h1>
+      <h1> Hello world {this.props.user.username}</h1>
     )
   }
 }
