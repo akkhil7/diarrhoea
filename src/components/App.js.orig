@@ -2,7 +2,16 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './home/Home';
 import CreateNote from './note/CreateNote';
+<<<<<<< HEAD
 import Login from './login/Login';
+const App = () => (
+  <Router> 
+  <div>
+    <Route exact path="/" component={Home}/>
+    <Route path="/create" component={CreateNote}/>
+    <Route path="/login" component={Login}/>
+  </div>
+=======
 import ViewNote from './note/ViewNote';
 
 const App = () => (
@@ -10,9 +19,9 @@ const App = () => (
     <div>
     	<Route exact path="/" component={Home}></Route>
     	<Route path="/create" component={CreateNote}></Route>
-      <Route path="/login" component={Login}></Route>
     	<Route path="/view" component={ViewNote}></Route>
   	</div>
+>>>>>>> ff34c3e1132f3212791fbb09835fd572dd2149d7
   </Router>
 )
 
