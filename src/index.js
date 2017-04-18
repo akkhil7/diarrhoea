@@ -4,10 +4,12 @@ import App from './components/App';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducers from './reducers';
+import store from './store.js';
 
-let store = createStore(reducers);
+//let store = createStore(reducers);
 
-ReactDOM.render(<Provider store={store}>
+ReactDOM.render(
+  <Provider store={store}>
     <App /> 
   </Provider>,
   document.getElementById('root')

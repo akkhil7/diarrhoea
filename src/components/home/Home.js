@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { currentUser } from '../../actions/userActions';
+import { fetchCurrentUser } from '../../actions/userActions';
 
 const mapStateToProps = (store) => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = (store) => {
 
 class Home extends React.Component {
   componentWillMount() {
-    this.props.dispatch(currentUser())
+    this.props.dispatch(fetchCurrentUser())
   }
   render() {
     return(
