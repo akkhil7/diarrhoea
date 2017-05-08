@@ -1,7 +1,5 @@
 import React from 'react';
 import _ from 'lodash';
-import styled from 'styled-components';
-import Request from 'superagent';
 import { fetchCurrentUser } from '../../actions/userActions';
 import { connect } from 'react-redux';
 

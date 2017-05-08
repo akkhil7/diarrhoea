@@ -5,13 +5,12 @@ import CreateNote from './note/CreateNote';
 import Login from './login/Login';
 import ViewNote from './note/ViewNote';
 import Dashboard from './dashboard/Dashboard';
-
 const App = () => (
   <Router> 
-    <div>
+    <div id='router'>
     	<Route exact path="/" component={Home}></Route>
     	<Route path="/create" component={CreateNote}></Route>
-      <Route path="/login" component={Login}></Route>
+        <Route path="/login" component={Login}></Route>
     	<Route path="/view" component={ViewNote}></Route>
     	<Route path='/dashboard' component={Dashboard}></Route>
   	</div>
