@@ -18,7 +18,7 @@ export function fetchCurrentUser(user){
       else
         dispatch({type:"FETCH_CURRENT_USER_ERROR", payload: err})
     })
-   }
+  }
 }
 
 export function verifyCurrentUser(){
@@ -38,5 +38,5 @@ export function verifyCurrentUser(){
       else
         dispatch({type:"VERIFY_CURRENT_USER_ERROR", payload: err})
     })
-   }
+  }
 }

@@ -3,6 +3,7 @@ import RichTextEditor from 'react-rte';
 import { connect } from 'react-redux';
 import { verifyCurrentUser } from '../../actions/userActions';
 import API from '../API';
+import { createNote } from '../../actions/noteActions';
 
 const mapStateToProps = (store) => {
   return {
@@ -27,18 +28,11 @@ class CreateNote extends React.Component{
 	handleSubmit(){
 		var entry = this.state.value.toString('html');
 		var id = this.props.currentUser.id;
-		var url = API.url('notes');
-		var note={
+		var note= {
 			entry: entry,
-			id: id
+			id: id 
 		}
-        var success = (res) => {
-            console.log("New note added successfully");
-        }
-        var failure = (res) => {
-            console.log("Failed to add new note");
-        }
-        API.post(url,note,success,failure)
+		this.props.dispatch(createNote(note));
 	}
 
 	render(){
