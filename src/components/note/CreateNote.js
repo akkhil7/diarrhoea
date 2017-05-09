@@ -2,6 +2,7 @@ import React from 'react';
 import RichTextEditor from 'react-rte';
 import { connect } from 'react-redux';
 import { verifyCurrentUser } from '../../actions/userActions';
+<<<<<<< HEAD
 import API from '../API';
 import { createNote } from '../../actions/noteActions';
 
@@ -35,6 +36,7 @@ class CreateNote extends React.Component{
 		this.props.dispatch(createNote(note));
 	}
 
+
 	render(){
 		var entry = this.state.value.toString('html');
 		return(
@@ -45,7 +47,6 @@ class CreateNote extends React.Component{
           		value={this.state.value}
           		onChange={this.onChange.bind(this)}
         		/>
-        		<button onClick={this.handleSubmit.bind(this)}>SUBMIT</button>
 				</div>
 			</div>
 		)

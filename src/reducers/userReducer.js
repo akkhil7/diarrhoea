@@ -1,6 +1,6 @@
 export default function reducer(state = {
-  currentUser: {},
-  User:{},
+  token: {},
+  currentUser:{},
   fetching: false,
   fetched: false,
   verifing: false,
@@ -15,7 +15,7 @@ export default function reducer(state = {
       return {...state,
         fetched: true,
         fetching: false,
-        currentUser: action.payload
+        token: action.payload
       }
     }
     case "FETCH_CURRENT_USER_ERROR": {
@@ -31,7 +31,7 @@ export default function reducer(state = {
       return {...state,
         verified: true,
         verifing: false,
-        User: action.payload
+        currentUser: action.payload
       }
     }
   }

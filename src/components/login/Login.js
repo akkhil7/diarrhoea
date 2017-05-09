@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (store) => {
   return {
-    currentUser: store.user.currentUser
+    token: store.user.token,
+    fetched: store.user.fetched,
+    fetching: store.user.fetching
   }
 }
 
@@ -19,7 +21,7 @@ class Login extends React.Component {
       username: this.refs.username.value,
       password: this.refs.password.value
     }
-    this.props.dispatch(fetchCurrentUser(credentials))
+  this.props.dispatch(fetchCurrentUser(credentials))
     
 
   }
@@ -29,7 +31,7 @@ class Login extends React.Component {
         <input type="text" ref="username" />
         <input type="password" ref="password" />
         <button onClick={this.handleSubmit}> submit </button>
-        {this.props.currentUser.access_token}
+        <h2>{this.props.fetched}</h2>
       </div>
     )
   }
