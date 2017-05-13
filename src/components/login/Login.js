@@ -22,16 +22,15 @@ class Login extends React.Component {
       password: this.refs.password.value
     }
   this.props.dispatch(fetchCurrentUser(credentials))
-    
-
   }
+
   render() {
     return(
       <div>
         <input type="text" ref="username" />
         <input type="password" ref="password" />
         <button onClick={this.handleSubmit}> submit </button>
-        <h2>{this.props.fetched}</h2>
+        <h2>{this.props.token}</h2>
       </div>
     )
   }

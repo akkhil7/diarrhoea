@@ -2,7 +2,6 @@ import React from 'react';
 import RichTextEditor from 'react-rte';
 import { connect } from 'react-redux';
 import { verifyCurrentUser } from '../../actions/userActions';
-<<<<<<< HEAD
 import API from '../API';
 import { createNote } from '../../actions/noteActions';
 
