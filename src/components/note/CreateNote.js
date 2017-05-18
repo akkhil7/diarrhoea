@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { verifyCurrentUser } from '../../actions/userActions';
 import API from '../API';
 import { createNote } from '../../actions/noteActions';
-
 const mapStateToProps = (store) => {
   return {
     currentUser: store.user.currentUser
@@ -42,15 +41,17 @@ class CreateNote extends React.Component{
 	render(){
 		var entry = this.state.value.toString('html');
 		return(
-			<div>
+			<div className="create-wrapper">
 				<h1> Hello world {this.props.currentUser.username}</h1>
-				<div>
+				<div className = "editor">
 				<RichTextEditor
+				toolbarClassName="demo-toolbar"
+  				editorClassName="demo-editor"
           		value={this.state.value}
           		onChange={this.onChange.bind(this)}
         		/>
 				</div>
-				<button onClick={this.handleSubmit.bind(this)}>Submit</button>
+				<button className = "note-submit" onClick={this.handleSubmit.bind(this)}>Submit</button>
 			</div>
 		)
 	}

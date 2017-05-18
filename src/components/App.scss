@@ -1,12 +1,7 @@
 @import "../../bourbon/_bourbon.scss";
 @import "../../neat/_neat.scss";
 @import "../../base/_base.scss";
-
-body {
-  background-color: black;
-  color: red;
-  margin: 10px;
-}
+@import "note/_note.scss";
 
 .hello-btn {
   @include grid-push(3);
