@@ -15,15 +15,18 @@ class CreateNote extends React.Component{
 	
 	componentWillMount() {
     	this.props.dispatch(verifyCurrentUser())
-  	}
+  }
 	
-	state = {
+  constructor() {
+    super();
+    this.state = {
    		value: RichTextEditor.createEmptyValue()
-  	}
+    }
+  }
    
-    onChange = (value) => {
+  onChange = (value) => {
    		this.setState({value});
-  	};
+  };
 	
 	handleSubmit(){
 		var entry = this.state.value.toString('html');
