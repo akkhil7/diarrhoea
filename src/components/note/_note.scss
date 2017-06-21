@@ -1,11 +1,7 @@
-.editor{
+.text-editor{
 	@include grid-column(8);
 	@include grid-shift(2);
 	margin-top: 150px;
-}
-
-.demo-editor{
-	height: 500px;
 }
 
 .note-submit{
@@ -14,7 +10,8 @@
 	margin-top: 730px;
 }
 
-.custom-css-class:hover{
-	background-color: red;
+.ql-editor{
+	height: 500px;
 }
+
 

@@ -198,16 +198,13 @@ hr {
   border-top: 0;
   margin: 1.5em 0; }
 
-.editor {
+.text-editor {
   width: calc(66.66667% - 33.33333px);
   float: left;
   margin-left: 20px;
   left: calc(16.66667% - 23.33333px + 20px);
   position: relative;
   margin-top: 150px; }
-
-.demo-editor {
-  height: 500px; }
 
 .note-submit {
   width: calc(16.66667% - 23.33333px);
@@ -216,8 +213,8 @@ hr {
   margin-left: calc(-25% - 15px + 40px);
   margin-top: 730px; }
 
-.custom-css-class:hover {
-  background-color: red; }
+.ql-editor {
+  height: 500px; }
 
 .hello-btn {
   margin-left: calc(25% - 25px + 40px); }
