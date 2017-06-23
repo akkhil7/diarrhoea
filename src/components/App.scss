@@ -2,6 +2,7 @@
 @import "../../neat/_neat.scss";
 @import "../../base/_base.scss";
 
+@import "note/_note.scss";
 
 .hello-btn {
   @include grid-push(3);

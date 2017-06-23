@@ -1,10 +1,9 @@
 import React from 'react';
-import RichTextEditor from 'react-rte';
 import { connect } from 'react-redux';
 import { verifyCurrentUser } from '../../actions/userActions';
-import API from '../API';
 import { createNote } from '../../actions/noteActions';
-
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 const mapStateToProps = (store) => {
   return {
     currentUser: store.user.currentUser
@@ -12,24 +11,24 @@ const mapStateToProps = (store) => {
 }
 
 class CreateNote extends React.Component{
+
+	constructor(props) {
+  	  	super(props)
+    	this.state = { text: '' }
+
+  	}
 	
 	componentWillMount() {
     	this.props.dispatch(verifyCurrentUser())
-  }
-	
-  constructor() {
-    super();
-    this.state = {
-   		value: RichTextEditor.createEmptyValue()
-    }
-  }
+  	}
    
-  onChange = (value) => {
-   		this.setState({value});
-  };
+  	handleChange(value) {
+   		this.setState({ text: value })
+  	}
 	
 	handleSubmit(){
-		var entry = this.state.value.toString('html');
+		var entry = this.state.text;
+		console.log(entry);
 		var id = this.props.currentUser.id;
 		var note= {
 			entry: entry,
@@ -38,19 +37,31 @@ class CreateNote extends React.Component{
 		this.props.dispatch(createNote(note));
 	}
 
-
 	render(){
-		var entry = this.state.value.toString('html');
+		var quillModules = {
+			 toolbar: [
+     		 [{ 'header': [1, 2, false] }],
+     		 ['bold', 'italic', 'underline','strike', 'blockquote'],
+     		 [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+     		 ['link', 'image'],
+     		 ['clean']
+    		],
+		};
+		var formats: [
+   		 	'header',
+   			'bold', 'italic', 'underline', 'strike', 'blockquote',
+    		'list', 'bullet', 'indent',
+   			'link', 'image'
+  		];
+
+		var entry = this.state.value;
 		return(
-			<div>
+			<div className="create-wrapper">
 				<h1> Hello world {this.props.currentUser.username}</h1>
-				<div>
-				<RichTextEditor
-          		value={this.state.value}
-          		onChange={this.onChange.bind(this)}
-        		/>
+				<div className="text-editor">
+					<ReactQuill value={this.state.text} onChange={this.handleChange.bind(this)}  theme="snow" modules={quillModules} placeholder="Start Writing......................." formats={formats}/>
 				</div>
-				<button onClick={this.handleSubmit.bind(this)}>Submit</button>
+				<button className = "note-submit" onClick={this.handleSubmit.bind(this)}>Submit</button>
 			</div>
 		)
 	}
