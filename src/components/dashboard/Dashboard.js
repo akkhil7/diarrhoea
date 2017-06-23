@@ -1,15 +1,13 @@
 import React from 'react';
-import Sidebar from '../style-components/sidebar';
-import Wrapper from '../style-components/style';
-import Button from '../style-components/button';
+import Calendar from '../calendar/Calendar.js';
+
 class Dashboard extends React.Component{
 	render(){
 		return(
-			<Wrapper>
- 				<Sidebar>Hello World, this is my first styled component!</Sidebar>
-				<Button>Write</Button>
-			</Wrapper>
-		)
+      <div className="dashboard-container">
+        <Calendar />
+      </div>
+			)
 	}
 }
 
