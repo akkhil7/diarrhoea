@@ -216,5 +216,16 @@ hr {
 .ql-editor {
   height: 500px; }
 
+.dashboard-container {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px; }
+
+.calendar-container {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
+  text-align: center; }
+
 .hello-btn {
   margin-left: calc(25% - 25px + 40px); }
