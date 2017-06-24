@@ -3,6 +3,7 @@
 @import "../../base/_base.scss";
 
 @import "note/_note.scss";
+@import "story/_story.scss";
 
 .hello-btn {
   @include grid-push(3);
