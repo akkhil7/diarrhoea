@@ -2,15 +2,19 @@ import React from 'react';
 import Gravatar from './Gravatar'
 class Navbar extends React.Component{
 	render(){
+    if(this.props.isLight)
+      var navbarClass = "navbar light"
+    else
+      var navbarClass = "navbar"
 		return(
-			<div className='navbar'>
+			<div className={navbarClass}>
 				<Gravatar />
-				<ul  className="navbar-buttons">
-					<li className="navbar-button">Dashboard</li>
-					<li className="navbar-button">Goals</li>
-					<li className="navbar-button">Memories</li>
-					<li className="navbar-button">Settings</li>
-					<li className="navbar-button">Logout</li>
+				<ul className="navbar-menu">
+					<li className="navbar-item">Dashboard</li>
+					<li className="navbar-item">Memories</li>
+					<li className="navbar-item">Goals</li>          
+					<li className="navbar-item">Settings</li>
+					<li className="navbar-item">Logout</li>
 				</ul>
 			</div>
 		)
