@@ -23,3 +23,21 @@ $custom-grid: (
 	text-align: center;
 	border: 5px solid white;
 }
+
+.navbar-buttons{
+	text-align: center;
+	margin-top: 300px;
+	color: white;
+	font-size: 20px;
+}
+
+.navbar-button{
+	height: 50px;
+	padding: 10px;
+	// box-shadow: 0 0 0px 0.5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-button:hover{
+		background-color: rgba(0,0,0,0.4);
+
+}
