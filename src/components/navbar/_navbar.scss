@@ -1,0 +1,25 @@
+$custom-grid: (
+  columns: 12,
+  gutter: 0px,
+);
+
+.navbar{
+	@include grid-column(2,$custom-grid);
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.2);
+}
+
+
+.pro-image{
+	@include grid-column(5,$custom-grid);
+	@include grid-shift(3.5);
+	border-radius: 50%;
+	margin-top: 100px;
+	text-align: center;
+	border: 5px solid white;
+}

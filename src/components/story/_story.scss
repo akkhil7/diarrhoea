@@ -1,14 +1,18 @@
-.story-wrapper{
-	height: 100%;
-}
 
 $custom-grid: (
   columns: 12,
   gutter: 0px,
 );
 
+.story-wrapper{
+	height: 100%;
+	@include grid-column(12,$custom-grid);
+	overflow: hidden;
+}
+
 .image{
 	height: 100%;
+	min-width: 1440px;
 	position: absolute;
 }
 
@@ -21,18 +25,20 @@ $custom-grid: (
 	@include grid-column(7,$custom-grid);
 	background-color: white;
 	height: 100%;
-	position: relative;
-	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 .note{
-	width:70%;
+	width:80%;
+	padding: 20px;
 	text-align: justify;
-	margin-top: 150px;
-	@include grid-push(2);
-	letter-spacing: 4px;
-	font-family: "Times New Roman", Georgia, Serif;
-	max-height: 700px;
+	margin-top: 80px;
+	font-size: 1.2em;
+	@include grid-push(1);
+	font-family: Georgia, Serif;
+	max-height: 800px;
 	overflow: auto;
 }
 

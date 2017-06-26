@@ -5,6 +5,7 @@
 @import "note/_note.scss";
 @import "story/_story.scss";
 @import "dashboard/_dashboard.scss";
+@import "navbar/_navbar.scss";
 
 .hello-btn {
   @include grid-push(3);
