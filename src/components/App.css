@@ -219,13 +219,49 @@ hr {
 .dashboard-container {
   width: calc(100% - 40px);
   float: left;
-  margin-left: 20px; }
+  margin-left: 20px;
+  padding-top: 40px; }
 
 .calendar-container {
   width: calc(100% - 40px);
   float: left;
   margin-left: 20px;
-  text-align: center; }
+  height: 100%; }
+
+.calendar-component {
+  width: calc(58.33333% - 31.66667px);
+  float: left;
+  margin-left: 20px;
+  text-align: right;
+  height: 100%; }
+
+.display-preview {
+  width: calc(43.75% - 28.75px);
+  float: left;
+  margin-left: 20px;
+  padding: 50px 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  z-index: 99;
+  background-color: white; }
+  .display-preview h2 {
+    padding: 0px 20px; }
+  .display-preview .close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer; }
+
+.recent-posts {
+  width: calc(41.66667% - 28.33333px);
+  float: left;
+  margin-left: 20px;
+  height: 100%;
+  padding-left: 10px;
+  padding-top: 15px; }
 
 .hello-btn {
   margin-left: calc(25% - 25px + 40px); }
