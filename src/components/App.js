@@ -5,6 +5,7 @@ import CreateNote from './note/CreateNote';
 import Login from './login/Login';
 import ViewNote from './note/ViewNote';
 import Dashboard from './dashboard/Dashboard';
+import Story from './story/Story';
 const App = () => (
   <Router> 
     <div id='router'>
@@ -13,6 +14,7 @@ const App = () => (
         <Route path="/login" component={Login}></Route>
     	<Route path="/view" component={ViewNote}></Route>
     	<Route path='/dashboard' component={Dashboard}></Route>
+    	<Route path='/story' component={Story}></Route>
   	</div>
   </Router>
 )

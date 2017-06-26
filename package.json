@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "rc-calendar": "^8.3.0",
+    "crypto": "0.0.3",
+    "rc-calendar": "^8.4.5",
     "rc-select": "^6.8.6",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
