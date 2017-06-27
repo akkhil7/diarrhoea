@@ -16,3 +16,10 @@ export function createNote(note){
     API.post(url,note,success,failure)
   }
 }
+
+export function quillUpdate(value){
+  let payload={}
+  return function(dispatch){
+    dispatch({type:"QUILL_UPDATE", payload: value})
+  }
+}

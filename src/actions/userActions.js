@@ -1,5 +1,5 @@
 import Request from 'superagent';
-
+//use API
 export function fetchCurrentUser(user){
   let payload = {}
   return function(dispatch) { 
@@ -42,6 +42,7 @@ export function verifyCurrentUser(){
 }
 
 export function registerUser(user){
+  let payload = {}
   return function(dispatch){
     dispatch({type:"REGISTER_USER"})
      Request

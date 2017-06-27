@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { verifyCurrentUser } from '../../actions/userActions';
 import { createNote } from '../../actions/noteActions';
+import { quillUpdate } from '../../actions/noteActions';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 const mapStateToProps = (store) => {
@@ -23,7 +24,7 @@ class CreateNote extends React.Component{
   	}
    
   	handleChange(value) {
-   		this.setState({ text: value })
+   		this.props.dispatch(quillUpdate(value))
   	}
 	
 	handleSubmit(){

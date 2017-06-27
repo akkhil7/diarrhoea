@@ -2,7 +2,8 @@ export default function reducer(state = {
 	Note: {},
 	creating: false,
 	created: false,
-	error: null
+	error: null,
+	text: ""
 	},action){
 	switch(action.type){
 		case "CREATE_NOTE": {
@@ -17,6 +18,9 @@ export default function reducer(state = {
 		}
 		case "CREATE_NOTE_ERR": {
 			return {...state,error: action.payload}
+		}
+		case "QUILL_UPDATE": {
+			return {...state,text: action.payload}
 		}
 	}
 	return state;
