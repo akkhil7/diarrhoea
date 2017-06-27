@@ -5,6 +5,8 @@ export default function reducer(state = {
   fetched: false,
   verifing: false,
   verified: false,
+  registering:false,
+  registered:false,
   error: null
 }, action){
   switch (action.type) {
@@ -32,6 +34,26 @@ export default function reducer(state = {
         verified: true,
         verifing: false,
         currentUser: action.payload
+      }
+    }
+    
+    case "REGISTER_USER":{
+      return{...state, registering: true}
+    }
+    
+    case "REGISTER_USER_DONE":{
+      return{
+        ...state,
+        registered: true,
+        registering: false
+      }
+    }
+
+    case "REGISTER_USER_ERROR":{
+      return{
+        ...state,
+        registering:false,
+        error: action.err
       }
     }
   }

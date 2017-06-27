@@ -1,0 +1,14 @@
+.register-container{
+	@include grid-column(5);
+	@include grid-push(3.5);
+	margin-top: 200px;
+ 	box-shadow: 0 0 0px 0.5px rgba(0, 0, 0, 0.5);
+ 	padding: 40px;
+ 	height: 400px;
+ 	border-radius: 10px;
+}
+
+.register{
+	@include grid-column(3);
+	@include grid-push(4);
+}

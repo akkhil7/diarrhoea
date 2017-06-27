@@ -32,8 +32,9 @@ class CreateNote extends React.Component{
 		var id = this.props.currentUser.id;
 		var note= {
 			entry: entry,
-			id: id 
+			user_id: id 
 		}
+		console.log(note);
 		this.props.dispatch(createNote(note));
 	}
 

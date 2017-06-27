@@ -6,12 +6,14 @@ import Login from './login/Login';
 import ViewNote from './note/ViewNote';
 import Dashboard from './dashboard/Dashboard';
 import Story from './story/Story';
+import Register from './register/Register';
 const App = () => (
   <Router> 
     <div id='router'>
     	<Route exact path="/" component={Home}></Route>
     	<Route path="/create" component={CreateNote}></Route>
-        <Route path="/login" component={Login}></Route>
+      <Route path="/login" component={Login}></Route>
+       <Route path="/register" component={Register}></Route>
     	<Route path="/view" component={ViewNote}></Route>
     	<Route path='/dashboard' component={Dashboard}></Route>
     	<Route path='/story' component={Story}></Route>
