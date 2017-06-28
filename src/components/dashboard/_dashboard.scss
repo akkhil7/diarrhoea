@@ -10,10 +10,10 @@
 
 }
 
-
 .calendar-component {
   @include grid-column(7);
-  text-align: right;
+  @include grid-shift(2.5);
+  //text-align: right;
   //border-right: 1px solid #dce0e0;
   height: 100%;
 }
@@ -47,3 +47,55 @@
   padding-left: 10px;
   padding-top: 15px;
 }
+
+.goal-container {
+  @include grid-column(12);
+  @include grid-shift(2.5);
+  margin-top: 50px;
+}
+
+$custom-neat-grid: (
+  columns: 12,
+  gutter: 0px,
+);
+
+.goal-child-container{
+  @include grid-column(2.4);
+  margin-left: 0px;
+}
+
+.goal-child-connector{
+  @include grid-column(12,$custom-neat-grid);
+  margin-top: 7px;
+  margin-left: 2px;
+  position: relative;
+  z-index: -1;
+  height: 10px;
+  background-color: #333;
+  box-shadow: inset 0px 0px 0px 0px 2px #333;
+}
+
+.goal-child-circle {
+  height: 25px;
+  width: 25px;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  //box-shadow: 0 0 0 1px #333;
+
+}
+
+  .goal-child-circle.highlight {
+    background-color: #28a6ff;
+  }
+
+  .goal-preview {
+    @include grid-column(9.5);
+    @include grid-shift(2.5);
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #dce0e0;
+    padding: 15px;
+    color: #606060;
+    font-weight: 200;
+  }

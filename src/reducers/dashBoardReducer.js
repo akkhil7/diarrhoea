@@ -4,7 +4,9 @@ export default function reducer(state = {
 	loadedCalendar: false,
 	error: null,
 	note: [],
-	days: []
+	days: [],
+  	showGoal: false,
+  	goal: {}
 	},action){
 	switch(action.type){
 		case "LOAD_CALENDAR": {
@@ -22,6 +24,14 @@ export default function reducer(state = {
 		case "LOAD_CALENDAR_ERR": {
 			return {...state,error: action.payload, loadingCalendar: false}
 		}
+
+    case "TOGGLE_GOAL": {
+      var showGoal = showGoal
+      return {...state, 
+        showGoal: !showGoal,
+        goal: action.payload
+      }
+    }
 	}
 	return state;
 }

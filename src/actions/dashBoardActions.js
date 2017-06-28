@@ -25,7 +25,16 @@ export function loadCalendarData(){
      		dispatch({type:"LOAD_CALENDAR_ERR", payload: res})
   		}
 
-    	API.get(url,success,failure)
-    }
+    API.get(url,success,failure)
+  }
 
 } 
+
+export function toggleGoal(e,goal) {
+  let payload = {}
+  e.preventDefault();
+  return function(dispatch) {
+    console.log(goal);
+    dispatch({type: "TOGGLE_GOAL", payload: goal})
+  }
+}

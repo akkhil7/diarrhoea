@@ -275,7 +275,8 @@ hr {
   width: calc(58.33333% - 31.66667px);
   float: left;
   margin-left: 20px;
-  text-align: right;
+  left: calc(20.83333% - 24.16667px + 20px);
+  position: relative;
   height: 100%; }
 
 .display-preview {
@@ -305,6 +306,55 @@ hr {
   height: 100%;
   padding-left: 10px;
   padding-top: 15px; }
+
+.goal-container {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
+  left: calc(20.83333% - 24.16667px + 20px);
+  position: relative;
+  margin-top: 50px; }
+
+.goal-child-container {
+  width: calc(20% - 24px);
+  float: left;
+  margin-left: 20px;
+  margin-left: 0px; }
+
+.goal-child-connector {
+  width: calc(100%);
+  float: left;
+  margin-left: 0px;
+  margin-top: 7px;
+  margin-left: 2px;
+  position: relative;
+  z-index: -1;
+  height: 10px;
+  background-color: #333;
+  box-shadow: inset 0px 0px 0px 0px 2px #333; }
+
+.goal-child-circle {
+  height: 25px;
+  width: 25px;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer; }
+
+.goal-child-circle.highlight {
+  background-color: #28a6ff; }
+
+.goal-preview {
+  width: calc(79.16667% - 35.83333px);
+  float: left;
+  margin-left: 20px;
+  left: calc(20.83333% - 24.16667px + 20px);
+  position: relative;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 1px solid #dce0e0;
+  padding: 15px;
+  color: #606060;
+  font-weight: 200; }
 
 .navbar {
   width: calc(16.66667%);
