@@ -6,8 +6,19 @@ export function loadCalendarData(){
 		var url = API.url('notes')
 		dispatch({type:"LOAD_CALENDAR"})
     	var success = (res) => {
-            console.log(res);
-     		dispatch({type:"LOAD_CALENDAR_DONE", payload: res})
+            const notes = res;
+            const days = []
+            for(var i = 0; i<notes.length; i++) {
+                const createdDate = new Date(notes[i].created_at)
+                const createdDay = createdDate.getUTCDate();
+                days.push(createdDate);
+            }
+            const payload = {
+                days: days,
+                res: res
+            }
+            console.log(payload)
+     		dispatch({type:"LOAD_CALENDAR_DONE", payload: payload})
      	}
 
     	var failure = (res) => {

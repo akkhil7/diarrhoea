@@ -1,23 +1,26 @@
 export default function reducer(state = {
 	
-	loading: false,
-	loaded: false,
+	loadingCalendar: false,
+	loadedCalendar: false,
 	error: null,
-	note: []
+	note: [],
+	days: []
 	},action){
 	switch(action.type){
-		case "LOADING_CALENDAR": {
-			return {...state,loading:true}
+		case "LOAD_CALENDAR": {
+			return {...state,loadingCalendar:true}
 		}
-		case "LOADING_CALENDAR_DONE": {
+		case "LOAD_CALENDAR_DONE": {
+			console.log(action.payload)
 			return {...state,
-				loading: false,
-				loaded: true,
-				note: action.payload
+				loadingCalendar: false,
+				loadedCalendar: true,
+				note: action.payload.res,
+				days: action.payload.days
 			}
 		}
-		case "LOADING_CALENDAR_ERR": {
-			return {...state,error: action.payload}
+		case "LOAD_CALENDAR_ERR": {
+			return {...state,error: action.payload, loadingCalendar: false}
 		}
 	}
 	return state;

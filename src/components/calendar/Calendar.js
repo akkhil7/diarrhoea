@@ -9,30 +9,13 @@ class Calendar extends React.Component {
   constructor() {
     super()
     this.state = {
-      notes: [],
       selectedNote: {},
       flag: false
     }
   }
 
   componentDidMount() {
-    var url = API.url('notes')
-
-    var success = (res) => {
-      console.log(res)
-      this.setState({notes:res})
-      this.toggleDayBox();
       this.modifyCalendarStyle();
-      
-    }
-
-    var failure = (res) => {
-      console.log(res)
-    }
-
-    API.get(url,success,failure)
-
-
   }
 
   modifyCalendarStyle() {
@@ -43,25 +26,12 @@ class Calendar extends React.Component {
       nodes[i].firstChild.style.boxShadow = '0 0 3Rpx #00a2ff';
     }
   }
-  toggleDayBox() { //getting each day of the month from calendar
-    const notes = this.state.notes
-    console.log(notes)
-    const days = []
-    for(var i = 0; i<notes.length; i++) {
-      const createdDate = new Date(notes[i].created_at)
-      const createdDay = createdDate.getUTCDate();
-      days.push(createdDate);
-    }
-
-    this.setState({days});
-
-  }
 
   handleDayClick(day,modifiers,event) {
 
     console.log(event)
     const node = event.target
-    const notes = this.state.notes
+    const notes = this.props.note
     const dayDate = new Date(day)
     dayDate.setHours(0,0,0);
    // console.log(dayDate)
@@ -88,9 +58,8 @@ class Calendar extends React.Component {
   }
   
   render() {
-    console.log(this.state.days)
     const modifiers = {
-      highlight: this.state.days,
+      highlight: this.props.days,
     }
 
     const modifiersStyles = {

@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (store) => {
   return {
-   note: store.dashboard.note
+   note: store.dashboard.note,
+   days: store.dashboard.days,
+   loadedCalendar: store.dashboard.loadedCalendar
   }
 }
 
@@ -15,11 +17,17 @@ class Dashboard extends React.Component{
 		this.props.dispatch(loadCalendarData())
 	}
 	render(){
+		var note = this.props.note;
+		var days = this.props.days;
+		if(this.props.loadedCalendar)
+			var displayCalendar = <Calendar note={note} days={days} />
+		else
+			var displayCalendar = ""
 		return(
-      <div className="dashboard-container">
-        <Navbar isLight={true}/>
-        <Calendar />
-      </div>
+      	<div className="dashboard-container">
+        	<Navbar isLight={true}/>
+        	{displayCalendar}
+      	</div>
 			)
 	}
 }
