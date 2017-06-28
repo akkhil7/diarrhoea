@@ -30,7 +30,6 @@ class Login extends React.Component {
         <input type="text" ref="username" />
         <input type="password" ref="password" />
         <button onClick={this.handleSubmit}> submit </button>
-        <h2>{this.props.token}</h2>
       </div>
     )
   }

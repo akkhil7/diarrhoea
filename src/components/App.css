@@ -306,6 +306,41 @@ hr {
   padding-left: 10px;
   padding-top: 15px; }
 
+.goal-container {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
+  left: calc(20.83333% - 24.16667px + 20px);
+  position: relative;
+  margin-top: 50px; }
+
+.goal-child-container {
+  width: calc(20% - 24px);
+  float: left;
+  margin-left: 20px;
+  margin-left: 0px; }
+
+.goal-child-connector {
+  width: calc(100%);
+  float: left;
+  margin-left: 0px;
+  margin-top: 7px;
+  margin-left: 2px;
+  position: relative;
+  z-index: -1;
+  height: 10px;
+  background-color: #333;
+  box-shadow: inset 0px 0px 0px 0px 2px #333; }
+
+.goal-child-circle {
+  height: 25px;
+  width: 25px;
+  background-color: #333;
+  border-radius: 50%; }
+
+.goal-child-circle.highlight {
+  background-color: #28a6ff; }
+
 .navbar {
   width: calc(16.66667%);
   float: left;
