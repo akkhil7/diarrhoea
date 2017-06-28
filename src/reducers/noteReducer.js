@@ -1,5 +1,5 @@
 export default function reducer(state = {
-	Note: {},
+	
 	creating: false,
 	created: false,
 	error: null,

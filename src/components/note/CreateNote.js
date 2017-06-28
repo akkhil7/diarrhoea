@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import { verifyCurrentUser } from '../../actions/userActions';
 import { createNote } from '../../actions/noteActions';
 import { quillUpdate } from '../../actions/noteActions';
+import store from '../../store.js';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 const mapStateToProps = (store) => {
   return {
-    currentUser: store.user.currentUser
+    currentUser: store.user.currentUser,
+    entry: store.note.text
   }
 }
 
@@ -16,19 +18,22 @@ class CreateNote extends React.Component{
 	constructor(props) {
   	  	super(props)
     	this.state = { text: '' }
-
   	}
 	
 	componentWillMount() {
+		console.log(this.props.currentUser)
     	this.props.dispatch(verifyCurrentUser())
+    	console.log(this.props.currentUser)
+
   	}
    
   	handleChange(value) {
    		this.props.dispatch(quillUpdate(value))
+   		console.log(this.props.entry)
   	}
 	
 	handleSubmit(){
-		var entry = this.state.text;
+		var entry = this.props.entry;
 		console.log(entry);
 		var id = this.props.currentUser.id;
 		var note= {
@@ -61,7 +66,7 @@ class CreateNote extends React.Component{
 			<div className="create-wrapper">
 				<h1> Hello world {this.props.currentUser.username}</h1>
 				<div className="text-editor">
-					<ReactQuill value={this.state.text} onChange={this.handleChange.bind(this)}  theme="snow" modules={quillModules} placeholder="Start Writing......................." formats={formats}/>
+					<ReactQuill value={this.props.entry} onChange={this.handleChange.bind(this)}  theme="snow" modules={quillModules} placeholder="Start Writing" formats={formats}/>
 				</div>
 				<button className = "note-submit" onClick={this.handleSubmit.bind(this)}>Submit</button>
 			</div>

@@ -20,6 +20,7 @@ export function createNote(note){
 export function quillUpdate(value){
   let payload={}
   return function(dispatch){
+    console.log(value);
     dispatch({type:"QUILL_UPDATE", payload: value})
   }
 }
