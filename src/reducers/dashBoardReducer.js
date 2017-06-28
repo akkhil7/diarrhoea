@@ -3,7 +3,9 @@ export default function reducer(state = {
 	loading: false,
 	loaded: false,
 	error: null,
-	note: []
+	note: [],
+  showGoal: false,
+  goal: {}
 	},action){
 	switch(action.type){
 		case "LOADING_CALENDAR": {
@@ -19,6 +21,14 @@ export default function reducer(state = {
 		case "LOADING_CALENDAR_ERR": {
 			return {...state,error: action.payload}
 		}
+
+    case "TOGGLE_GOAL": {
+      var showGoal = showGoal
+      return {...state, 
+        showGoal: !showGoal,
+        goal: action.payload
+      }
+    }
 	}
 	return state;
 }

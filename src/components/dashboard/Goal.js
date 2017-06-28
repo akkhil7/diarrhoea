@@ -2,8 +2,9 @@ import React from 'react';
 import GoalChild from './GoalChild.js';
 
 class Goal extends React.Component{
-  toggleGoal = (e) => {
-    this.props.toggleGoal(e);
+  toggleGoal = (e,goal) => {
+    var goal = this.props.goal;
+    this.props.toggleGoal(e,goal);
   }
 
   render(){

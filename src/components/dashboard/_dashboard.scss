@@ -79,6 +79,7 @@ $custom-neat-grid: (
   width: 25px;
   background-color: #333;
   border-radius: 50%;
+  cursor: pointer;
   //box-shadow: 0 0 0 1px #333;
 
 }
@@ -87,3 +88,13 @@ $custom-neat-grid: (
     background-color: #28a6ff;
   }
 
+  .goal-preview {
+    @include grid-column(9.5);
+    @include grid-shift(2.5);
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #dce0e0;
+    padding: 15px;
+    color: #606060;
+    font-weight: 200;
+  }

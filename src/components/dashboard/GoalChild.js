@@ -5,7 +5,8 @@ import Navbar from '../navbar/Navbar.js';
 class GoalChild extends React.Component {
   
   toggleGoal = (e) => {
-    this.props.toggleGoal(e);
+    var goal = this.props.goal;
+    this.props.toggleGoal(e, goal);
   }
 	render(){
     const goal = this.props.goal
