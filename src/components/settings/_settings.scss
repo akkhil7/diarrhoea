@@ -1,0 +1,36 @@
+$custom-grid: (
+  columns: 12,
+  gutter: 0px,
+);
+
+.settings-bar{
+	@include grid-column(10,$custom-grid);
+	@include grid-shift(2,$custom-grid);
+	background-color: #f1f1f1;
+	color: #828497;
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.25);
+}
+
+.settings-button{
+	@include grid-column(1.5);
+	@include grid-shift(0.5);
+	display: inline;
+	padding: 20px 0px;
+	text-align: center;
+	font-weight: 600;
+}
+
+.current-settings{
+	margin-top: 50px;
+	height: 100%;
+	@include grid-column(8.5, $custom-grid);
+	@include grid-push(2.5, $custom-grid);
+
+	h1 {
+		font-size: 1.5em;
+		border-bottom: 1px solid #d6d6d6;
+		@include grid-column(12, $custom-grid);
+		padding-bottom: 35px;
+	}
+}
+
