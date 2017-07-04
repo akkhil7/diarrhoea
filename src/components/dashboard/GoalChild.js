@@ -10,12 +10,15 @@ class GoalChild extends React.Component {
   }
 	render(){
     const goal = this.props.goal
+    var connector;
+    if(!this.props.isLast)
+      connector = (<div className="goal-child-connector">
+                       </div>)
 		return(
-      <div className="goal-child-container">
-        <div className="goal-child-connector">
-        </div>
+      <div>
         <div onClick={this.toggleGoal} className="goal-child-circle">
         </div>
+        {connector}
       </div>
 			)
 	}
