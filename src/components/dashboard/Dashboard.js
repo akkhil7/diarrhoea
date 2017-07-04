@@ -26,6 +26,15 @@ class Dashboard extends React.Component{
 	render(){
 		var note = this.props.note;
 		var days = this.props.days;
+    const goals = [
+      {goal: "wow"},
+      {goal: "entho"},
+      {goal: "oru sugam"},
+      {goal: "plz god give me a gf"},
+      {goal: "no im just kidding"}
+      
+    ]
+
 		if(this.props.loadedCalendar)
 			var displayCalendar = <Calendar note={note} days={days} />
 		else
@@ -41,7 +50,7 @@ class Dashboard extends React.Component{
       		<div className="dashboard-container">
         		<Navbar isLight={true}/>
         		{displayCalendar}
-        		<Goal toggleGoal={this.toggleGoal}/>
+        		<Goal goals={goals} toggleGoal={this.toggleGoal}/>
         		{displayGoal}
       		</div>
 			)

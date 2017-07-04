@@ -59,16 +59,12 @@ $custom-neat-grid: (
   gutter: 0px,
 );
 
-.goal-child-container{
-  @include grid-column(2.4);
-  margin-left: 0px;
-}
-
 .goal-child-connector{
   @include grid-column(12,$custom-neat-grid);
   margin-top: 7px;
-  margin-left: 2px;
   position: relative;
+  margin-left: -2px;
+  float: left;
   z-index: -1;
   height: 10px;
   background-color: #333;
@@ -78,6 +74,8 @@ $custom-neat-grid: (
 .goal-child-circle {
   height: 25px;
   width: 25px;
+  float: left;
+  margin-left: -2px;
   background-color: #333;
   border-radius: 50%;
   cursor: pointer;
@@ -85,17 +83,17 @@ $custom-neat-grid: (
 
 }
 
-  .goal-child-circle.highlight {
-    background-color: #28a6ff;
-  }
+.goal-child-circle.highlight {
+  background-color: #28a6ff;
+}
 
-  .goal-preview {
-    @include grid-column(9.5);
-    @include grid-shift(2.5);
-    margin-top: 20px;
-    border-radius: 5px;
-    border: 1px solid #dce0e0;
-    padding: 15px;
-    color: #606060;
-    font-weight: 200;
-  }
+.goal-preview {
+  @include grid-column(9.5);
+  @include grid-shift(2.5);
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 1px solid #dce0e0;
+  padding: 15px;
+  color: #606060;
+  font-weight: 200;
+}

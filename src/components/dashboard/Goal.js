@@ -7,25 +7,33 @@ class Goal extends React.Component{
     this.props.toggleGoal(e,goal);
   }
 
-  render(){
-    const goals = [
-      {goal: "wow"},
-      {goal: "entho"},
-      {goal: "oru sugam"},
-      {goal: "plz god give me a gf"}
-    ]
+  componentDidMount() {
+    this.adjustWidth();
+  }
 
+  adjustWidth() {
+    const connector = document.getElementsByClassName('goal-child-connector')
+    for(var i=0;i<connector.length;i++){
+      var partOne = 100/connector.length      
+      connector[i].style.width = `calc(${partOne}% - 30px)`;
+    }
+
+  }
+  render(){
+    const goals = this.props.goals
+    var i = 1
+    var isLast = false;
     const display = goals.map((item) => {
+      if(i==goals.length)
+        var isLast = true
+      console.log(i++)
       return(
-        <GoalChild toggleGoal={this.props.toggleGoal} goal={item} />
+        <GoalChild isLast={isLast} toggleGoal={this.props.toggleGoal} goal={item} />
       )
     })
     return(
       <div className="goal-container">
-      {display}
-      <div className="goal-child-container">
-      <div className="goal-child-circle highlight"></div>
-      </div>
+        {display}
       </div>
     )
   }
