@@ -3,8 +3,13 @@ import Navbar from '../navbar/Navbar.js';
 import AccountSettings from './AccountSettings.js';
 import PrivacySettings from './PrivacySettings.js';
 import DiarySettings from './DiarySettings.js';
-
-
+import { connect } from 'react-redux';
+import {loadSettings} from '../../actions/settingsActions';
+const mapStateToProps = (store) => {
+  return {
+  current: store.settings.current
+  }
+}
 class Settings extends React.Component{
 	constructor() {
     	super()
@@ -21,10 +26,16 @@ class Settings extends React.Component{
 	loadSettings(e){
 		var value= e.currentTarget.dataset.id;
 		console.log(value)
-		this.setState({current:value}, this.changeStyle(e.currentTarget))
+		const changeStyle = () => {
+			console.log("Im getting called too")
+			this.changeStyle(e.currentTarget)
+		}
+		// this.setState({current:value}, this.changeStyle(e.currentTarget))
+		this.props.dispatch(loadSettings(value, changeStyle))
 	}
 
 	changeStyle(node){
+		console.log("Im getting called")
 		this.clearBorders();
 		node.style.borderBottom = '4px solid #00a2ff';
 
@@ -37,11 +48,11 @@ class Settings extends React.Component{
 
 	render(){
 		var display = <AccountSettings/>;
-		if(this.state.current=="account")
+		if(this.props.current=="account")
 			var display=<AccountSettings />
-		else if(this.state.current=="privacy")
+		else if(this.props.current=="privacy")
 			var display=<PrivacySettings />
-		else if(this.state.current=="diary")
+		else if(this.props.current=="diary")
 			var display=<DiarySettings />
 		return(
 			<div>
@@ -60,5 +71,7 @@ class Settings extends React.Component{
 		)
 	}
 }
+
+Settings = connect(mapStateToProps)(Settings);
 
 module.exports = Settings;
