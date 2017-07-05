@@ -17,6 +17,13 @@ export function createNote(note){
   }
 }
 
+export function selectNote(note){
+  let payload={}
+  return function(dispatch){
+    dispatch({type:"SELECT_NOTE",payload: note})
+  }
+}
+
 export function quillUpdate(value){
   let payload={}
   return function(dispatch){

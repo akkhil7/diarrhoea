@@ -3,7 +3,8 @@ export default function reducer(state = {
 	creating: false,
 	created: false,
 	error: null,
-	text: ""
+	text: "",
+	selectedNote: ""
 	},action){
 	switch(action.type){
 		case "CREATE_NOTE": {
@@ -21,6 +22,10 @@ export default function reducer(state = {
 		}
 		case "QUILL_UPDATE": {
 			return {...state,text: action.payload}
+		}
+
+		case "SELECT_NOTE": {
+			return {...state,selectedNote: action.payload}
 		}
 	}
 	return state;

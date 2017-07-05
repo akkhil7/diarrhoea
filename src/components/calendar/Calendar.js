@@ -4,6 +4,14 @@ import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import API from '../API.js';
 import _ from 'lodash';
+import { connect } from 'react-redux';
+import { selectNote } from '../../actions/noteActions';
+
+const mapStateToProps = (store) => {
+  return {
+    selectedNote: store.note.selectedNote
+  }
+}
 
 class Calendar extends React.Component {
   constructor() {
@@ -44,9 +52,7 @@ class Calendar extends React.Component {
       if (+dayDate === +noteDate)
         {
           const note = notes[i]
-          this.setState({
-            selectedNote: note,
-          })
+          this.props.dispatch(selectNote(note));
           break;
         }
     } // found note corresponding to date
@@ -54,7 +60,7 @@ class Calendar extends React.Component {
   }
 
   handlePreviewClose() {
-    this.setState({selectedNote: {}});
+    this.props.dispatch(selectNote({}));
   }
   
   render() {
@@ -69,8 +75,8 @@ class Calendar extends React.Component {
       }
     }
     var displayPreview = ""
-    const selectedNote = this.state.selectedNote
-    if(!_.isEmpty(this.state.selectedNote))
+    const selectedNote = this.props.selectedNote
+    if(!_.isEmpty(this.props.selectedNote))
     {
       displayPreview = (<div className="display-preview">
                           <img src="close.svg" className="close" onClick={this.handlePreviewClose.bind(this)} />
@@ -99,5 +105,8 @@ class Calendar extends React.Component {
     )
   }
 }
+ 
+Calendar = connect(mapStateToProps)(Calendar);
 
 module.exports = Calendar;
+
