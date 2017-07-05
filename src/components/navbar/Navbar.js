@@ -1,6 +1,8 @@
 import React from 'react';
 import Gravatar from './Gravatar'
+import {Link} from 'react-router-dom'
 class Navbar extends React.Component{
+
 	render(){
     if(this.props.isLight)
       var navbarClass = "navbar light"
@@ -10,11 +12,11 @@ class Navbar extends React.Component{
 			<div className={navbarClass}>
 				<Gravatar />
 				<ul className="navbar-menu">
-					<li className="navbar-item">Dashboard</li>
-					<li className="navbar-item">Memories</li>
-					<li className="navbar-item">Goals</li>          
-					<li className="navbar-item">Settings</li>
-					<li className="navbar-item">Logout</li>
+					<li className="navbar-item"><Link to='/dashboard'>Dashboard</Link></li>
+					<li className="navbar-item"><Link to='/memories'>Memories</Link></li>
+					<li className="navbar-item"><Link to='/goals'>Goals</Link></li>          
+					<li className="navbar-item"><Link to='/settings'>Settings</Link></li>
+					<li className="navbar-item"><Link to='/logout'>Logout</Link></li>
 				</ul>
 			</div>
 		)
