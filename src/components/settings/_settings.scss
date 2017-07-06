@@ -34,3 +34,74 @@ $custom-grid: (
 	}
 }
 
+.first-field{
+	@include grid-column(4, $custom-grid)
+}
+
+.email-field{
+	@include grid-column(4, $custom-grid)
+}
+
+.last-field{
+	@include grid-column(4, $custom-grid)
+	@include grid-shift(1)
+}
+
+h3{
+		@include grid-column(5, $custom-grid);
+}
+
+.bio-field{
+	@include grid-column(9, $custom-grid)
+}
+
+.personal-info-item{
+	font-size: 1em;
+	color: #777;
+	padding-top: 10px;
+}
+
+.personal-info-wrapper{
+	margin-top: 40px;
+}
+
+.submit-button{
+	@include grid-column(2);
+	@include grid-push(3.5);
+	margin-top: 30px;
+	background-color: #00a2ff;
+}
+
+.email-field {
+	transition: 2s linear all;
+}
+
+
+.error{
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  @include grid-column(4, $custom-grid)
+
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+      border-color: red;
+
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
