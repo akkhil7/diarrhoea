@@ -8,6 +8,27 @@
 @import "navbar/_navbar.scss";
 @import "register/_register.scss";
 @import "settings/_settings.scss";
+@import "memories/_memories.scss";
+
 .hello-btn {
   @include grid-push(3);
+}
+
+$custom-grid: (
+  columns: 12,
+  gutter: 0px,
+);
+
+.topbar {
+  @include grid-column(10, $custom-grid);
+  @include grid-shift(2,$custom-grid);
+  padding: 10px;
+  padding-top: 20px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+
+  h2 {
+    @include grid-shift(0.25);
+    font-weight: 400;
+    font-size: 1.1em;
+  }
 }

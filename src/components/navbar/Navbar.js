@@ -12,11 +12,11 @@ class Navbar extends React.Component{
 			<div className={navbarClass}>
 				<Gravatar />
 				<ul className="navbar-menu">
-					<li className="navbar-item"><Link to='/dashboard'>Dashboard</Link></li>
-					<li className="navbar-item"><Link to='/memories'>Memories</Link></li>
-					<li className="navbar-item"><Link to='/goals'>Goals</Link></li>          
-					<li className="navbar-item"><Link to='/settings'>Settings</Link></li>
-					<li className="navbar-item"><Link to='/logout'>Logout</Link></li>
+					<Link to='/dashboard'><li className="navbar-item"><span>DASHBOARD</span></li></Link>
+					<Link to='/memories'><li className="navbar-item"><span>MEMORIES</span></li></Link>
+          <Link to='/goals'><li className="navbar-item"><span>GOALS</span></li></Link>    
+					<Link to='/settings'><li className="navbar-item"><span>SETTINGS</span></li></Link>
+					<Link to='/logout'><li className="navbar-item"><span>LOGOUT</span></li></Link>
 				</ul>
 			</div>
 		)

@@ -8,6 +8,7 @@ import Dashboard from './dashboard/Dashboard';
 import Story from './story/Story';
 import Register from './register/Register';
 import Settings from './settings/Settings';
+import Memory from './memories/Memory';
 const App = () => (
   <Router> 
     <div id='router'>
@@ -16,6 +17,7 @@ const App = () => (
       <Route path="/login" component={Login}></Route>
        <Route path="/register" component={Register}></Route>
     	<Route path="/view" component={ViewNote}></Route>
+      <Route path="/memories" component={Memory}></Route>
     	<Route path='/dashboard' component={Dashboard}></Route>
     	<Route path='/story' component={Story}></Route>
       <Route path='/settings' component={Settings}></Route>

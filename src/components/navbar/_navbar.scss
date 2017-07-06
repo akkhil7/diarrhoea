@@ -10,15 +10,24 @@ $custom-grid: (
 	top: 0;
 	left: 0;
 	z-index: 100;
+  border-bottom: 5px solid #00a2ff;
 	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
 	background-color: rgba(0,0,0,0.2);
 
 }
 
 .navbar.light {
-    background-color: white;
+    background-color: #232B3A;
     color: #777;
-    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+    //box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+
+    a {
+      text-decoration: none;
+      font-size: 0.8em;
+      font-weight: 400;
+      color: #d4dadc;
+    }
 }
 
 .pro-image{
@@ -32,18 +41,30 @@ $custom-grid: (
 }
 
 .navbar-menu{
-  @include grid-column(8);
-  @include grid-shift(2);
+  @include grid-column(12, $custom-grid);
 	text-align: left;
 	font-size: 1em;
-  font-weight: 200;
   margin-top: 50px;
 }
 
 .navbar-item{
 	height: 50px;
-	padding: 10px;
+  @include grid-column(12,$custom-grid);
+	padding-top: 16px;
 	// box-shadow: 0 0 0px 0.5px rgba(0, 0, 0, 0.5);
+
+  span {
+    @include grid-column(8);
+    @include grid-shift(2);
+  }
 }
 
+
+.navbar-item:hover {
+  background-color: white;
+  color: #00a2ff;
+  font-weight: 600;
+  border-left: 8px solid #00a2ff;
+
+}
 
