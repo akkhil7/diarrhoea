@@ -105,3 +105,16 @@ h3{
     transform: translate3d(4px, 0, 0);
   }
 }
+
+.old-password, .new-password, .confirm-password{
+	@include grid-column(4,$custom-grid)
+	@include grid-push(4,$custom-grid)
+	@include grid-shift(-4,$custom-grid)
+}
+
+.password-button{
+	@include grid-column(2,$custom-grid)
+	@include grid-push(3, $custom-grid)
+	@include grid-shift(-3 ,$custom-grid)
+	margin-top: 30px;
+}
