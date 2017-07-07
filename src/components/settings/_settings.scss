@@ -78,7 +78,6 @@ gutter: 0px,
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
-    @include grid-column(4, $custom-grid);
 
   }
 
@@ -162,7 +161,7 @@ gutter: 0px,
 
   .tgl {
   display: none;
-  
+
   // add default box-sizing for this scope
   &,
   &:after,
@@ -176,7 +175,7 @@ gutter: 0px,
       background: none;
     }
   }
-  
+
   + .tgl-btn {
     outline: 0;
     display: block;
@@ -193,16 +192,16 @@ gutter: 0px,
       width: 50%;
       height: 100%;
     }
-    
+
     &:after {
       left: 0;
     }
-    
+
     &:before {
       display: none;
     }
   }
-  
+
   &:checked + .tgl-btn:after {
     left: 50%;
   }
@@ -226,11 +225,11 @@ gutter: 0px,
         0 0 0 1px rgba(0,0,0,.1),
         0 4px 0 rgba(0,0,0,.08);
     }
-    
+
     &:hover:after {
       will-change: padding;
     }
-    
+
     &:active {
       box-shadow: inset 0 0 0 2em #e8eae9;
       &:after {
@@ -238,7 +237,7 @@ gutter: 0px,
       }
     }
   }
-  
+
   &:checked + .tgl-btn {
     background: #00a2ff;
     &:active {

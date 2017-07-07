@@ -18,8 +18,10 @@ class Login extends React.Component {
     e.preventDefault();
     console.log(this.refs.username.value)
     const credentials = {
-      username: this.refs.username.value,
-      password: this.refs.password.value
+      user: {
+        username: this.refs.username.value,
+        password: this.refs.password.value
+      }
     }
   this.props.dispatch(fetchCurrentUser(credentials))
   }

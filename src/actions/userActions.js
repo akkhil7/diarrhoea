@@ -15,7 +15,7 @@ export function fetchCurrentUser(user){
     var failure = (res) => {
       dispatch({type:"FETCH_CURRENT_USER_ERROR", payload: res})
     }
-    API.post(url,{user},success,failure)
+    API.post(url,user,success,failure)
   }
 }
 
