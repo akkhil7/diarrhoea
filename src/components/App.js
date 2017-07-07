@@ -9,6 +9,7 @@ import Story from './story/Story';
 import Register from './register/Register';
 import Settings from './settings/Settings';
 import Memory from './memories/Memory';
+
 const App = () => (
   <Router> 
     <div id='router'>

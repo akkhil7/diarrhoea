@@ -45,8 +45,8 @@ class DiarySettings extends React.Component{
 						<h2>Private Diary Post</h2>
 						<ul className="toggle-button">
 						<li className="tg-list-item">
-                 			<input className="tgl tgl-ios" id="cb3" type="checkbox" onClick={this.changeDisplay.bind(this)}/>
-              				<label className="tgl-btn" data-tg-off="Private" data-tg-on="Public" htmlFor="cb3"></label>
+                 			<input className="tgl tgl-ios" id="cb2" type="checkbox" onClick={this.changeDisplay.bind(this)}/>
+              				<label className="tgl-btn" data-tg-off="Private" data-tg-on="Public" htmlFor="cb2"></label>
             			</li>
             			</ul>
             			<p className="instruction">{display}</p>

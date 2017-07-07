@@ -574,6 +574,40 @@ hr {
     margin-left: 0px;
     left: calc(-33.33333% + 0px);
     position: relative; }
+  .diary-settings-form .tgl {
+    display: none; }
+    .diary-settings-form .tgl, .diary-settings-form .tgl:after, .diary-settings-form .tgl:before,
+    .diary-settings-form .tgl *,
+    .diary-settings-form .tgl *:after,
+    .diary-settings-form .tgl *:before,
+    .diary-settings-form .tgl + .tgl-btn {
+      box-sizing: border-box; }
+      .diary-settings-form .tgl::selection, .diary-settings-form .tgl:after::selection, .diary-settings-form .tgl:before::selection,
+      .diary-settings-form .tgl *::selection,
+      .diary-settings-form .tgl *:after::selection,
+      .diary-settings-form .tgl *:before::selection,
+      .diary-settings-form .tgl + .tgl-btn::selection {
+        background: none; }
+    .diary-settings-form .tgl + .tgl-btn {
+      outline: 0;
+      display: block;
+      width: 4em;
+      height: 2em;
+      position: relative;
+      cursor: pointer;
+      user-select: none; }
+      .diary-settings-form .tgl + .tgl-btn:after, .diary-settings-form .tgl + .tgl-btn:before {
+        position: relative;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%; }
+      .diary-settings-form .tgl + .tgl-btn:after {
+        left: 0; }
+      .diary-settings-form .tgl + .tgl-btn:before {
+        display: none; }
+    .diary-settings-form .tgl:checked + .tgl-btn:after {
+      left: 50%; }
   .diary-settings-form .tgl-ios + .tgl-btn {
     background: #fbfbfb;
     border-radius: 2em;
