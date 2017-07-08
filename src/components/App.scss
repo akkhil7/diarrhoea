@@ -9,6 +9,7 @@
 @import "register/_register.scss";
 @import "settings/_settings.scss";
 @import "memories/_memories.scss";
+@import "goals/_goals.scss";
 
 .hello-btn {
   @include grid-push(3);

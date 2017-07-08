@@ -104,4 +104,3 @@ class Calendar extends React.Component {
 Calendar = connect(mapStateToProps)(Calendar);
 
 module.exports = Calendar;
-
