@@ -1,19 +1,24 @@
-.dashboard-container {
-  @include grid-column(12);
-  padding-top: 40px;
+$custom-grid: (
+  gutter: 0px,
+  columns: 12,
+);
 
+.dashboard-container {
+  @include grid-column(10, $custom-grid);
+  @include grid-shift(2, $custom-grid);
+  padding: 10px;
+  padding-top: 15px;
 }
 
 .calendar-container {
-  @include grid-column(12);
+  @include grid-column(6);
   height: 100%
-
 }
 
 .calendar-component {
   @include grid-column(7);
-  @include grid-shift(2.5);
   //text-align: right;
+  margin-left: 0px;
   //border-right: 1px solid #dce0e0;
   height: 100%;
 }
@@ -42,16 +47,14 @@
 }
 
 .recent-posts {
-  @include grid-column(5);
+  @include grid-column(6, $custom-grid);
   height: 100%;
-  padding-left: 10px;
-  padding-top: 15px;
+  //padding-top: 15px;
 }
 
 .goal-container {
-  @include grid-column(9.5);
-  @include grid-shift(2.5);
-  margin-top: 50px;
+  @include grid-column(12);
+  margin-top: 20px;
 }
 
 $custom-neat-grid: (
@@ -61,19 +64,19 @@ $custom-neat-grid: (
 
 .goal-child-connector{
   @include grid-column(12,$custom-neat-grid);
-  margin-top: 7px;
+  margin-top: 6px;
   position: relative;
   margin-left: -2px;
   float: left;
   z-index: -1;
-  height: 10px;
+  height: 8px;
   background-color: #333;
   box-shadow: inset 0px 0px 0px 0px 2px #333;
 }
 
 .goal-child-circle {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   float: left;
   margin-left: -2px;
   background-color: #333;
@@ -88,12 +91,20 @@ $custom-neat-grid: (
 }
 
 .goal-preview {
-  @include grid-column(9.5);
-  @include grid-shift(2.5);
+  @include grid-column(12);
   margin-top: 20px;
   border-radius: 5px;
   border: 1px solid #dce0e0;
   padding: 15px;
   color: #606060;
   font-weight: 200;
+}
+
+.h2-title {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  font-size: 1.1em;
+  font-weight: 400;
+  @include grid-column(12);
 }

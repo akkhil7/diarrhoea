@@ -1,5 +1,4 @@
 import React from 'react';
-
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import API from '../API.js';
@@ -31,7 +30,7 @@ class Calendar extends React.Component {
     console.log(nodes)
     for(var i=0;i<nodes.length;i++) {
       nodes[i].firstChild.style.backgroundColor = '#00a2ff';
-      nodes[i].firstChild.style.boxShadow = '0 0 3Rpx #00a2ff';
+      nodes[i].firstChild.style.boxShadow = '0 0 3px #00a2ff';
     }
   }
 
@@ -94,10 +93,6 @@ class Calendar extends React.Component {
         modifiers={modifiers}
         modifiersStyles = {modifiersStyles}
         />
-        </div>
-        <div className="recent-posts">
-        <h2> Recent Posts </h2>
-        <hr />
         </div>
         {displayPreview}        
       </div>
