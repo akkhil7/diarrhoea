@@ -9,7 +9,7 @@ import Story from './story/Story';
 import Register from './register/Register';
 import Settings from './settings/Settings';
 import Memory from './memories/Memory';
-import Goals from './goals/Goals';
+import CreateGoals from './goals/CreateGoals';
 
 const App = () => (
   <Router> 
@@ -23,7 +23,7 @@ const App = () => (
     	<Route path='/dashboard' component={Dashboard}></Route>
     	<Route path='/story' component={Story}></Route>
       <Route path='/settings' component={Settings}></Route>
-      <Route path='/goals' component={Goals}></Route>
+      <Route path='/goals' component={CreateGoals}></Route>
 
   	</div>
   </Router>
