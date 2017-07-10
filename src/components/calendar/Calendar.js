@@ -94,10 +94,6 @@ class Calendar extends React.Component {
         modifiersStyles = {modifiersStyles}
         />
         </div>
-        <div className="recent-posts">
-        <h2> Recent Posts </h2>
-        <hr />
-        </div>
         {displayPreview}        
       </div>
 

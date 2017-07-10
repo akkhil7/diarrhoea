@@ -260,13 +260,16 @@ hr {
   font-size: 40px; }
 
 .dashboard-container {
-  width: calc(100% - 40px);
+  width: calc(83.33333%);
   float: left;
-  margin-left: 20px;
-  padding-top: 40px; }
+  margin-left: 0px;
+  left: calc(16.66667% + 0px);
+  position: relative;
+  padding: 10px;
+  padding-top: 15px; }
 
 .calendar-container {
-  width: calc(100% - 40px);
+  width: calc(50% - 30px);
   float: left;
   margin-left: 20px;
   height: 100%; }
@@ -275,8 +278,7 @@ hr {
   width: calc(58.33333% - 31.66667px);
   float: left;
   margin-left: 20px;
-  left: calc(20.83333% - 24.16667px + 20px);
-  position: relative;
+  margin-left: 0px;
   height: 100%; }
 
 .display-preview {
@@ -300,37 +302,33 @@ hr {
     cursor: pointer; }
 
 .recent-posts {
-  width: calc(41.66667% - 28.33333px);
+  width: calc(50%);
   float: left;
-  margin-left: 20px;
-  height: 100%;
-  padding-left: 10px;
-  padding-top: 15px; }
+  margin-left: 0px;
+  height: 100%; }
 
 .goal-container {
-  width: calc(79.16667% - 35.83333px);
+  width: calc(100% - 40px);
   float: left;
   margin-left: 20px;
-  left: calc(20.83333% - 24.16667px + 20px);
-  position: relative;
-  margin-top: 50px; }
+  margin-top: 20px; }
 
 .goal-child-connector {
   width: calc(100%);
   float: left;
   margin-left: 0px;
-  margin-top: 7px;
+  margin-top: 6px;
   position: relative;
   margin-left: -2px;
   float: left;
   z-index: -1;
-  height: 10px;
+  height: 8px;
   background-color: #333;
   box-shadow: inset 0px 0px 0px 0px 2px #333; }
 
 .goal-child-circle {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   float: left;
   margin-left: -2px;
   background-color: #333;
@@ -341,11 +339,9 @@ hr {
   background-color: #28a6ff; }
 
 .goal-preview {
-  width: calc(79.16667% - 35.83333px);
+  width: calc(100% - 40px);
   float: left;
   margin-left: 20px;
-  left: calc(20.83333% - 24.16667px + 20px);
-  position: relative;
   margin-top: 20px;
   border-radius: 5px;
   border: 1px solid #dce0e0;
@@ -353,12 +349,22 @@ hr {
   color: #606060;
   font-weight: 200; }
 
+.h2-title {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.1em;
+  font-weight: 400;
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px; }
+
 .navbar {
   width: calc(16.66667%);
   float: left;
   margin-left: 0px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
@@ -374,7 +380,8 @@ hr {
     text-decoration: none;
     font-size: 0.8em;
     font-weight: 400;
-    color: #d4dadc; }
+    color: #d4dadc;
+    outline: none; }
 
 .pro-image {
   width: calc(41.66667%);
@@ -401,7 +408,8 @@ hr {
   width: calc(100%);
   float: left;
   margin-left: 0px;
-  padding-top: 16px; }
+  padding-top: 16px;
+  outline: none; }
   .navbar-item span {
     width: calc(66.66667% - 33.33333px);
     float: left;
@@ -744,6 +752,16 @@ hr {
 .flipbutton .tgl-flip:checked + .tgl-btn:active:after {
   transform: rotateY(20deg); }
 
+.memory-list-container {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
+  margin-top: 25px; }
+
+.memory-item-container {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px; }
 .goals-form-wrapper {
   width: calc(33.33333% - 26.66667px);
   float: left;

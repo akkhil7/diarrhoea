@@ -28,7 +28,7 @@ class Goal extends React.Component{
         var isLast = true
       console.log(i++)
       return(
-        <GoalChild isLast={isLast} toggleGoal={this.props.toggleGoal} goal={item} />
+        <GoalChild key={item.id} isLast={isLast} toggleGoal={this.props.toggleGoal} goal={item} />
       )
     })
     return(

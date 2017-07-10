@@ -6,7 +6,7 @@ $custom-grid: (
 .navbar {
 	@include grid-column(2,$custom-grid);
 	height: 100%;
-	position: absolute;
+  position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 100;
@@ -27,6 +27,7 @@ $custom-grid: (
       font-size: 0.8em;
       font-weight: 400;
       color: #d4dadc;
+      outline: none;
     }
 }
 
@@ -51,6 +52,7 @@ $custom-grid: (
 	height: 50px;
   @include grid-column(12,$custom-grid);
 	padding-top: 16px;
+  outline: none;
 	// box-shadow: 0 0 0px 0.5px rgba(0, 0, 0, 0.5);
 
   span {
