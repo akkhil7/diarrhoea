@@ -12,7 +12,7 @@ class GoalsList extends React.Component{
 		var goals=this.props.currentGoals;
 		
 		var display = goals.map(function(goal){
-			return <GoalsItem key = {goal.id} goal = {goal} />
+			return <GoalsItem goal = {goal} />
 		})
 		return(
 			<div>

@@ -4,7 +4,7 @@ export default function reducer(state = {
 	fetching: false,
 	fetched: false,
 	error: null,
-	goals: []
+	goals: [],
 	},action){
 	switch(action.type){
 		case "FETCH_GOALS": {
@@ -26,7 +26,7 @@ export default function reducer(state = {
 		case "CREATE_GOAL_DONE": {
 			return {...state,
 				creating: false,
-				created: true
+				created: true,
 			}
 		}
 		case "CREATE_GOAL_ERR": {

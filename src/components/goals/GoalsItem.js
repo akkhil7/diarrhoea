@@ -10,7 +10,7 @@ class GoalsItem extends React.Component{
 		var goal = this.props.goal.description;
 		return(
 			<div>
-				<p>{goal}</p>
+				<h2>{goal}</h2>
 			</div>
 			);
 	}

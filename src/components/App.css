@@ -761,6 +761,7 @@ hr {
 .memory-item-container {
   width: calc(100%);
   float: left;
+<<<<<<< HEAD
   margin-left: 0px;
   box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
   padding: 10px;
@@ -804,6 +805,7 @@ hr {
     font-weight: 400;
     left: 0px;
     color: #00a2ff; }
+}
 
 .goals-form-wrapper {
   width: calc(33.33333% - 26.66667px);
@@ -820,6 +822,25 @@ hr {
     perspective: 1000px; }
   .goals-form-wrapper .goals-list {
     margin-top: 150px; }
+  .goals-form-wrapper .goals-input {
+    border: none;
+    border-bottom: 1px solid #00a2ff; }
+  .goals-form-wrapper .goals-input:focus {
+    box-shadow: none; }
+  .goals-form-wrapper .add-goals {
+    color: #00a2ff; }
+    .goals-form-wrapper .add-goals .add-goals-sign {
+      font-size: 3em;
+      width: calc(8.33333%);
+      float: left;
+      margin-left: 0px;
+      cursor: pointer; }
+    .goals-form-wrapper .add-goals .add-goals-text {
+      width: calc(25% - 25px);
+      float: left;
+      margin-left: 20px;
+      margin-top: 25px;
+      cursor: pointer; }
   .goals-form-wrapper h1 {
     font-size: 1.5em;
     border-bottom: 1px solid #d6d6d6;

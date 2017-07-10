@@ -17,6 +17,32 @@
   .goals-list{
     margin-top: 150px;
   }
+
+  .goals-input{
+    border: none;
+    border-bottom: 1px solid #00a2ff;
+  }
+
+  .goals-input:focus{
+    box-shadow: none;
+  }
+
+  .add-goals{
+    color: #00a2ff;
+
+    .add-goals-sign{
+      font-size: 3em;
+      @include grid-column(1,$custom-grid);
+      cursor:pointer;
+    }
+  
+    .add-goals-text{
+      @include grid-column(3);
+      margin-top: 25px;
+      cursor:pointer;
+    }
+  }
+
   h1{
     font-size: 1.5em;
     border-bottom: 1px solid #d6d6d6;

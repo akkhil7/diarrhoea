@@ -1,13 +1,14 @@
 import API from '../components/API';
 
-export function fetchGoals(){
+export function fetchGoals(callBackFn){
 	let payload=[]
 	return function (dispatch){
 	dispatch({type:"FETCH_GOALS"})
 	var url = API.url('goals')
 	var success = (res) => {
-        console.log(res)
      	dispatch({type:"FETCH_GOALS_DONE", payload: res})
+     	callBackFn(res);
+
     }
 
     var failure = (res) => {
@@ -18,7 +19,7 @@ export function fetchGoals(){
 
 }
 
-export function createGoal(description){
+export function createGoal(description,createCallBack){
 	let payload = {}
   	return function(dispatch){
     dispatch({type:"CREATE_GOAL"})
@@ -26,7 +27,8 @@ export function createGoal(description){
     var url = API.url('goals');
     var success = (res) => {
           console.log("goal added")
-          dispatch({type:"CREATE_GOAL_DONE", payload: res.user})
+          dispatch({type:"CREATE_GOAL_DONE", payload:res})
+          createCallBack(description)
     }
     var failure = (res) => {
         console.log("goal not added")
