@@ -22,14 +22,16 @@ export default function reducer(state = {
 			return {...state,error: action.payload}
 		}
 
-    case "LOAD_NOTE": {
+    case "LOAD_NOTES": {
       return {...state,loadingNote: true}
     }
 
-    case "LOAD_NOTE_SUCCESS": {
-      return {...state, loadedNote: true, loadingNote: false, notes: action.payload}
+    case "LOAD_NOTES_DONE": {
+      console.log(action.payload)
+      return {...state, 
+        loadedNote: true, loadingNote: false, notes: action.payload}
     }
-    case "LOAD_NOTE_ERR": {
+    case "LOAD_NOTES_ERR": {
 			return {...state,error: action.payload}
 		}
 

@@ -28,7 +28,7 @@ $custom-grid: (
     border-radius: 25px;
     background-color: white;
     border: 1px solid rgba(0,0,0,0.2);
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 
   }
 
@@ -37,7 +37,7 @@ $custom-grid: (
     color: white;
     border: none;
     font-weight: bold;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
   }
 }
 
@@ -116,13 +116,13 @@ $custom-grid: (
         top: 0;
         left: 0;
         backface-visibility: hidden;
-        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
         border-radius: 25px;
       }
 
       &:after {
         content: attr(data-tg-off);
-        background: #F92D2B;
+        background: black;
         transform: rotateY(-180deg);
       }
 
@@ -144,7 +144,7 @@ $custom-grid: (
       &:after {
         transform: rotateY(0);
         left: 0;
-        background: #F92D2B;
+        background: #da4a4a;
       }
 
       &:active:after {
@@ -161,5 +161,55 @@ $custom-grid: (
 }
 
 .memory-item-container {
-  @include grid-column(12);
+  @include grid-column(12,$custom-grid);
+  //border: 1px solid #aaa;
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.2);
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.memory-item-title {
+  margin-left: 100px;
+  @include grid-column(10);
+  float: left;
+  margin-top: 20px;
+  font-weight: 400;
+  color: #7b7b7b;
+  font-size: 1.4em;
+
+}
+.memory-item-date {
+  border-radius: 50%;
+  float: left;
+  background-color: white;
+  height: 75px;
+  width: 75px;
+  color: white;
+  display: table;
+  position: relative;
+  box-shadow: 0 1px 2px 0px #00a2ff;
+  span {
+   height: 75px;
+   width: 75px;
+   text-align: center;
+   color: #aaa;
+  }
+
+  .memory-item-date-month {
+    font-size: 0.9em;
+    font-weight: 400;
+    position: absolute;
+    top: 10px;
+
+  }
+
+  .memory-item-date-day {
+    position: absolute;
+    top: 30px;
+    font-size: 1.2em;
+    font-weight: 400;
+    left: 0px;
+    color: #00a2ff;
+  }
+
 }
