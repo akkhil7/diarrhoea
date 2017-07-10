@@ -25,17 +25,19 @@ export function selectNote(note){
 }
 
 export function loadNotes() {
-  let payload = []
-  return function(dispatch) P
-  dispatch({type: "LOAD_NOTEs"})
-  var url = API.url('notes')
-  var success = (res) => {
-    console.log(res);
-    dispatch({type: "LOAD_NOTES_DONE"}, payload: res)
-  }
-  var failure = (res) => {
-    console.log(res);
-    dispatch({type: "LOAD_NOTES_ERR"}, payload: res)
+  let payload = {}
+  return function(dispatch) {
+    dispatch({type: "LOAD_NOTES"})
+    var url = API.url('notes')
+    var success = (res) => {
+      console.log(res);
+      dispatch({type: "LOAD_NOTES_DONE", payload: res})
+    }
+    var failure = (res) => {
+      console.log(res);
+      dispatch({type: "LOAD_NOTES_ERR", payload: res})
+    }
+    API.get(url,success,failure)
   }
 }
 
