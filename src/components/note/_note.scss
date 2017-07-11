@@ -1,17 +1,61 @@
-.text-editor{
-	@include grid-column(8);
-	@include grid-shift(2);
-	margin-top: 150px;
-}
+$custom-grid: (
+ 	 gutter: 0px,
+  	columns: 12,
+	);
+.create-form {
+	
+	@include grid-column(10, $custom-grid);
+	@include grid-shift(2, $custom-grid);
+	height: 100%;
 
-.note-submit{
-	@include grid-column(2);
-	@include grid-push(-3);
-	margin-top: 730px;
-}
+	.text-editor{
+		@include grid-column(8);
+		@include grid-shift(2);
+		margin-top: 150px;
+	}
 
-.ql-editor{
-	height: 500px;
+	.gallery{
+        white-space: nowrap;
+		padding: 10px;
+		position: relative;
+		@include grid-column(12);
+		border: 2px solid #00a2ff;
+		margin-top: 100px;
+		height: 173px;
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+
+	.gallery-item{
+		// background: url('') 50% 50% no-repeat;
+		display: inline-block;
+		white-space: normal;
+		background-size: cover;
+		margin-right: 10px;
+		width: 150px;
+		height: 150px;
+	}
+
+	.image-upload{
+		@include grid-shift(2)
+		margin-top: 50px;
+	}
+	.note-submit{
+		@include grid-column(2);
+		@include grid-push(-3);
+		margin-top: 750px;
+	}	
+
+	.ql-editor{
+		height: 500px;
+	}
+	.image-upload{
+		@include grid-column(3);
+		@include grid-push(3);
+	}
+	.lightbox{
+		@include grid-column(5)
+	}
 }
 
 

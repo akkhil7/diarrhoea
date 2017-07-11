@@ -198,23 +198,60 @@ hr {
   border-top: 0;
   margin: 1.5em 0; }
 
-.text-editor {
-  width: calc(66.66667% - 33.33333px);
+.create-form {
+  width: calc(83.33333%);
   float: left;
-  margin-left: 20px;
-  left: calc(16.66667% - 23.33333px + 20px);
+  margin-left: 0px;
+  left: calc(16.66667% + 0px);
   position: relative;
-  margin-top: 150px; }
-
-.note-submit {
-  width: calc(16.66667% - 23.33333px);
-  float: left;
-  margin-left: 20px;
-  margin-left: calc(-25% - 15px + 40px);
-  margin-top: 730px; }
-
-.ql-editor {
-  height: 500px; }
+  height: 100%; }
+  .create-form .text-editor {
+    width: calc(66.66667% - 33.33333px);
+    float: left;
+    margin-left: 20px;
+    left: calc(16.66667% - 23.33333px + 20px);
+    position: relative;
+    margin-top: 150px; }
+  .create-form .gallery {
+    white-space: nowrap;
+    padding: 10px;
+    position: relative;
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px;
+    border: 2px solid #00a2ff;
+    margin-top: 100px;
+    height: 173px;
+    overflow-x: auto;
+    overflow-y: hidden; }
+  .create-form .gallery-item {
+    display: inline-block;
+    white-space: normal;
+    background-size: cover;
+    margin-right: 10px;
+    width: 150px;
+    height: 150px; }
+  .create-form .image-upload {
+    left: calc(16.66667% - 23.33333px + 20px);
+    position: relative;
+    margin-top: 50px; }
+  .create-form .note-submit {
+    width: calc(16.66667% - 23.33333px);
+    float: left;
+    margin-left: 20px;
+    margin-left: calc(-25% - 15px + 40px);
+    margin-top: 750px; }
+  .create-form .ql-editor {
+    height: 500px; }
+  .create-form .image-upload {
+    width: calc(25% - 25px);
+    float: left;
+    margin-left: 20px;
+    margin-left: calc(25% - 25px + 40px); }
+  .create-form .lightbox {
+    width: calc(41.66667% - 28.33333px);
+    float: left;
+    margin-left: 20px; }
 
 .story-wrapper {
   height: 100%;
