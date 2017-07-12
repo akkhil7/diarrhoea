@@ -5,6 +5,8 @@ import TopBar from '../navbar/TopBar.js';
 import Goal from './Goal.js'; 
 import { loadCalendarData,toggleGoal } from '../../actions/dashBoardActions';
 import { connect } from 'react-redux';
+import { verifyCurrentUser } from '../../actions/userActions';
+import { Redirect } from 'react-router-dom';
 
 const mapStateToProps = (store) => {
   return {
@@ -12,7 +14,9 @@ const mapStateToProps = (store) => {
     days: store.dashboard.days,
     loadedCalendar: store.dashboard.loadedCalendar,
     goal: store.dashboard.goal,
-    showGoal: store.dashboard.showGoal
+    showGoal: store.dashboard.showGoal,
+    verifiedUser: store.user.verifiedUser,
+    verifyingUser: store.user.verifyingUser
   }
 }
 
@@ -21,10 +25,36 @@ class Dashboard extends React.Component{
     e.preventDefault();
     this.props.dispatch(toggleGoal(e,goal))
   }
+  componentWillMount() {
+    this.props.dispatch(verifyCurrentUser());
+  }
   componentDidMount(){
     this.props.dispatch(loadCalendarData())
   }
-  render(){
+
+  renderLogin() {
+    return(
+      <Redirect to='login' />
+    )
+  }
+
+  render() {
+    console.log(this.props.verifyingUser)
+    if(this.props.verifyingUser || (!this.props.verifyingUser && !this.props.verifiedUser))
+      return this.renderLoading()
+    else if(this.props.verifiedUser)
+      return this.renderPage()
+    else
+      return this.renderLogin()
+  }
+
+  renderLoading() {
+    return (
+      <h2> LOADING </h2>
+    )
+  }
+  
+  renderPage(){
     var note = this.props.note;
     var days = this.props.days;
     const goals = [
@@ -48,24 +78,23 @@ class Dashboard extends React.Component{
                         )
                         return(
                           <div className="dashboard-wrapper">
-                          <Navbar isLight={true}/>
-                          <TopBar title="DASHBOARD" />
-                          <div className="dashboard-container">
-                          {displayCalendar}
-                          <div className="recent-posts">
-                          <h2 className="h2-title"> RECENT POSTS </h2>
-                          </div>
-                          <h2 className="h2-title"> GOALS </h2>
+                            <Navbar isLight={true}/>
+                            <TopBar title="DASHBOARD" />
+                            <div className="dashboard-container">
+                              {displayCalendar}
+                              <div className="recent-posts">
+                                <h2 className="h2-title"> RECENT POSTS </h2>
+                              </div>
+                              <h2 className="h2-title"> GOALS </h2>
                           
-                          <Goal goals={goals} toggleGoal={this.toggleGoal}/>
-                          {displayGoal}
+                              <Goal goals={goals} toggleGoal={this.toggleGoal}/>
+                                {displayGoal}
 
-                          </div>
+                            </div>
                           </div>
                         )
   }
 }
 
 Dashboard = connect(mapStateToProps)(Dashboard);
-
 module.exports = Dashboard;

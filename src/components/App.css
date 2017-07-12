@@ -498,6 +498,9 @@ hr {
   text-align: center;
   font-weight: 600; }
 
+.settings-button.selected {
+  border-bottom: 4px solid #00a2ff; }
+
 .current-settings {
   margin-top: 50px;
   height: 100%;
@@ -798,7 +801,6 @@ hr {
 .memory-item-container {
   width: calc(100%);
   float: left;
-<<<<<<< HEAD
   margin-left: 0px;
   box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
   padding: 10px;
@@ -842,7 +844,6 @@ hr {
     font-weight: 400;
     left: 0px;
     color: #00a2ff; }
-
 
 .goals-form-wrapper {
   width: calc(33.33333% - 26.66667px);

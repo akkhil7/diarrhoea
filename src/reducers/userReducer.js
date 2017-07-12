@@ -3,8 +3,8 @@ export default function reducer(state = {
   currentUser:{},
   fetching: false,
   fetched: false,
-  verifing: false,
-  verified: false,
+  verifyingUser: false,
+  verifiedUser: false,
   registering:false,
   registered:false,
   error: null
@@ -23,19 +23,28 @@ export default function reducer(state = {
     case "FETCH_CURRENT_USER_ERROR": {
       return {...state,
       fetching: false,
-      error: action.err
+      error: action.payload
       }
     }
     case "VERIFY_CURRENT_USER":{
-      return {...state, verifing: true}
+      return {...state, verifyingUser: true}
     }
     case "VERIFY_CURRENT_USER_DONE": {
       return {...state,
-        verified: true,
-        verifing: false,
+        verifiedUser: true,
+        verifyingUser: false,
         currentUser: action.payload
       }
     }
+    case "VERIFY_CURRENT_USER_ERROR": {
+      return {...state,
+        verifiedUser: false,
+        veriyingUser: false,
+        verifyUserError: action.payload
+      }
+    }
+    
+
     
     case "REGISTER_USER":{
       return{...state, registering: true}
