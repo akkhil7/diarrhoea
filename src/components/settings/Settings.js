@@ -5,73 +5,98 @@ import PrivacySettings from './PrivacySettings.js';
 import DiarySettings from './DiarySettings.js';
 import { connect } from 'react-redux';
 import {loadSettings} from '../../actions/settingsActions';
+import { verifyCurrentUser } from '../../actions/userActions';
+import { Redirect } from 'react-router-dom';
+
 const mapStateToProps = (store) => {
   return {
-  current: store.settings.current
+    current: store.settings.current,
+    verifiedUser: store.user.verifiedUser,
+    verifyingUser: store.user.verifyingUser,
   }
 }
 class Settings extends React.Component{
   constructor() {
     super()
     this.state = {
-      current:"account"
+      current: "account"
     }
   }
-
-  componentDidMount() {
-    var node = document.getElementsByClassName('settings-button')[0]
-    this.changeStyle(node); //to set account as initial blue border
+  
+  componentWillMount() {
+    this.props.dispatch(verifyCurrentUser());
   }
   
-
-	loadSettings(e){
-		var value= e.currentTarget.dataset.id;
-		console.log(value)
-		const changeStyle = () => {
-			console.log("Im getting called too")
-			this.changeStyle(e.currentTarget)
-		}
-		// this.setState({current:value}, this.changeStyle(e.currentTarget))
-		this.props.dispatch(loadSettings(value, changeStyle))
-	}
-
-	changeStyle(node){
-		console.log("Im getting called")
-		this.clearBorders();
-		node.style.borderBottom = '4px solid #00a2ff';
-
-  }
-  clearBorders() {
-    const otherNodes = document.getElementsByClassName('settings-button');
-    for(var i=0;i<otherNodes.length;i++)
-    otherNodes[i].style.borderBottom = '';
+  loadSettings(e){
+    var value= e.currentTarget.dataset.id;
+    console.log(value)
+    // this.setState({current:value}, this.changeStyle(e.currentTarget))
+    this.props.dispatch(loadSettings(value))
   }
 
+  renderLogin() {
+    return(
+      <Redirect to='login' />
+    )
+  }
 
-	render(){
-		var display = <AccountSettings/>;
-		if(this.props.current=="account")
-			var display=<AccountSettings />
-		else if(this.props.current=="privacy")
-			var display=<PrivacySettings />
-		else if(this.props.current=="diary")
-			var display=<DiarySettings />
-		return(
-			<div>
-				<Navbar isLight={true} />
-				<div className="settings-bar">
-					<ul>
-						<li className="settings-button" onClick={this.loadSettings.bind(this)} data-id="account">Account</li>
-						<li className="settings-button" onClick={this.loadSettings.bind(this)} data-id="privacy">Privacy</li>
-						<li className="settings-button" onClick={this.loadSettings.bind(this)} data-id="diary">Diary</li>
-					</ul>
-				</div>
-				<div className="current-settings">
-					{display}
-				</div>
-			</div>
-		)
-	}
+  render() {
+    if(this.props.verifyingUser || (!this.props.verifyingUser && !this.props.verifiedUser))
+      return this.renderLoading()
+    else if(this.props.verifiedUser)
+      return this.renderPage()
+    else
+      return this.renderLogin()
+  }
+
+  renderLoading() {
+    return (
+      <h2> LOADING </h2>
+    )
+  }
+
+  renderPage(){
+//to set account as initial blue border
+
+    var display = <AccountSettings/>;
+    var accountClass = "settings-button"
+    var privacyClass = "settings-button"
+    var diaryClass = "settings-button"
+    if(this.props.current=="privacy") {
+      display = <PrivacySettings />
+      privacyClass+= " selected"
+    }
+    else if(this.props.current=="diary") {
+      display = <DiarySettings />
+      diaryClass+= " selected"
+    }
+    else {
+      display = <AccountSettings />
+      accountClass+= " selected"
+    }
+
+    return(
+      <div>
+        <Navbar isLight={true} />
+        <div className="settings-bar">
+          <ul>
+            <li className={accountClass}
+              onClick={this.loadSettings.bind(this)} 
+              data-id="account"> Account </li>
+            <li className={privacyClass} 
+              onClick={this.loadSettings.bind(this)} 
+              data-id="privacy"> Privacy </li>
+            <li className={diaryClass} 
+              onClick={this.loadSettings.bind(this)} 
+              data-id="diary"> Diary </li>
+          </ul>
+        </div>
+        <div className="current-settings">
+          {display}
+        </div>
+      </div>
+    )
+  }
 }
 
 Settings = connect(mapStateToProps)(Settings);

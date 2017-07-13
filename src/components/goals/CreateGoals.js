@@ -4,10 +4,15 @@ import TopBar from '../navbar/TopBar.js';
 import { connect } from 'react-redux';
 import {fetchGoals,createGoal} from '../../actions/goalsActions';
 import  GoalsList  from './GoalsList';
+import { verifyCurrentUser } from '../../actions/userActions';
+import { Redirect } from 'react-router-dom';
 
 const mapStateToProps = (store) => {
   return {
-  	currentGoals: store.goals.goals
+  	currentGoals: store.goals.goals,
+    verifiedUser: store.user.verifiedUser,
+    verifyingUser: store.user.verifyingUser
+
   }
 }
 
@@ -24,6 +29,11 @@ class CreateGoals extends React.Component{
 		this.props.dispatch(fetchGoals(this.callBackFn.bind(this)));
 
 	}
+
+  componentWillMount() {
+    this.props.dispatch(verifyCurrentUser());
+  }
+
 
 	callBackFn(res) {
 		this.setState({goals: res})
@@ -67,8 +77,30 @@ class CreateGoals extends React.Component{
 	}
 
 
+  renderLogin() {
+    return(
+      <Redirect to='login' />
+    )
+  }
 
-	render(){
+  render() {
+    console.log(this.props.verifyingUser)
+    if(this.props.verifyingUser || (!this.props.verifyingUser && !this.props.verifiedUser))
+      return this.renderLoading()
+    else if(this.props.verifiedUser)
+      return this.renderPage()
+    else
+      return this.renderLogin()
+  }
+
+  renderLoading() {
+    return (
+      <h2> LOADING </h2>
+    )
+  }
+
+
+	renderPage(){
 		const currentGoals = this.state.goals;
 		var display = ""
 		if(this.state.display){
@@ -81,7 +113,7 @@ class CreateGoals extends React.Component{
 		console.log(currentGoals);
 		return(
 			<div>
-				<Navbar  isLight={true}/>
+				<Navbar isLight={true}/>
 				<TopBar title="GOALS" />
 				<div className="goals-form-wrapper">
 						<h1>Goals</h1>

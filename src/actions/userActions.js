@@ -19,18 +19,21 @@ export function fetchCurrentUser(user){
   }
 }
 
-export function verifyCurrentUser(){
+export function verifyCurrentUser(redirectToLogin){
   let payload = {}
-  var token = localStorage.diary_user_token
+  var token = {
+    token: localStorage.diary_user_token
+  }
   return function(dispatch) { 
     dispatch({type:"VERIFY_CURRENT_USER"})
 
     var url = API.url('tokens/verify_token');
     var success = (res) => {
-         dispatch({type:"VERIFY_CURRENT_USER_DONE", payload: res.user})
+      console.log(res);
+      dispatch({type:"VERIFY_CURRENT_USER_DONE", payload: res.user})
     }
     var failure = (res) => {
-          dispatch({type:"VERIFY_CURRENT_USER_ERROR", payload: res})
+      dispatch({type:"VERIFY_CURRENT_USER_ERROR", payload: res})
     }
     API.post(url,token,success,failure)
   }

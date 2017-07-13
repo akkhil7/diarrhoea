@@ -537,6 +537,9 @@ hr {
   text-align: center;
   font-weight: 600; }
 
+.settings-button.selected {
+  border-bottom: 4px solid #00a2ff; }
+
 .current-settings {
   margin-top: 50px;
   height: 100%;

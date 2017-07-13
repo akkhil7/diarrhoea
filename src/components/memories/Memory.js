@@ -6,12 +6,18 @@ import MemoryList from './MemoryList';
 import {connect } from 'react-redux';
 import {loadNotes} from '../../actions/noteActions.js';
 import _ from 'lodash';
+import { verifyCurrentUser } from '../../actions/userActions';
+import { Redirect } from 'react-router-dom';
+
 
 const mapStateToProps = (store) => {
   return {
     notes: store.note.notes,
     loadingNote: store.note.loadingNote,
-    loadedNote: store.note.loadedNote
+    loadedNote: store.note.loadedNote,
+    verifiedUser: store.user.verifiedUser,
+    verifyingUser: store.user.verifyingUser
+
   }
 }
 class Memory extends React.Component{
@@ -21,6 +27,11 @@ class Memory extends React.Component{
       isAllClicked: false,
     }
   }
+  
+  componentWillMount() {
+    this.props.dispatch(verifyCurrentUser());
+  }
+
   handleFilterAll = (e) => {
     e.preventDefault();
     this.setState({isAllClicked: !this.state.isAllClicked})
@@ -29,7 +40,31 @@ class Memory extends React.Component{
   componentDidMount() {
     this.props.dispatch(loadNotes())
   }
-  render(){
+
+  renderLogin() {
+    return(
+      <Redirect to='login' />
+    )
+  }
+
+  render() {
+    console.log(this.props.verifyingUser)
+    if(this.props.verifyingUser || (!this.props.verifyingUser && !this.props.verifiedUser))
+      return this.renderLoading()
+    else if(this.props.verifiedUser)
+      return this.renderPage()
+    else
+      return this.renderLogin()
+  }
+
+  renderLoading() {
+    return (
+      <h2> LOADING </h2>
+    )
+  }
+  
+
+  renderPage(){
     if(this.state.isAllClicked)
       var allButtonClass = "blue"
     else
