@@ -86,10 +86,10 @@ class CreateNote extends React.Component{
 		var entry = this.state.value;
     if(!this.state.galleryButton){
       var galleryButton=<Gallery images={this.state.images}/>;
-      var imageUpload=<div><div className="add-images"><p className="add-images-sign">+</p><p className="add-images-text">Add New Goal</p></div><input type='file' className="image-upload"  onChange={this.onFileSelected.bind(this)}/></div>
+      var imageUpload=<div><div className="add-images"><p className="add-images-sign">+</p><p className="add-images-text">Add New Image</p></div><input type='file' className="image-upload"  onChange={this.onFileSelected.bind(this)}/></div>
     }
     else{
-      var galleryButton=<button className="gallery-button" onClick={this.disableGalleryButton.bind(this)}><img src="upload.svg" className="upload-icon" />UPLOAD IMAGES</button>
+      var galleryButton=<button className="gallery-button" onClick={this.disableGalleryButton.bind(this)}><img src="cloud.svg" className="upload-icon" />UPLOAD IMAGES</button>
     }
 		return(
 			<div>

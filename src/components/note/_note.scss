@@ -2,16 +2,16 @@ $custom-grid: (
  	 gutter: 0px,
   	columns: 12,
 );
+
 .create-form {
-	
 	@include grid-column(10, $custom-grid);
 	@include grid-shift(1.5, $custom-grid);
-	height: 100%;
 
 	.text-editor{
 		@include grid-column(8);
 		@include grid-shift(2);
 		margin-top: 20px;
+		height: 100%;
 	}
 	.gallery{
         white-space: nowrap;
@@ -26,8 +26,8 @@ $custom-grid: (
 	}
 	.upload-icon{
 		position: absolute;
-		@include grid-shift(-0.1,$custom-grid);
-		margin-bottom: -10px;
+		@include grid-shift(1.7,$custom-grid);
+		margin-bottom: 15px;
 	}
 	.gallery-item{
 		// background: url('') 50% 50% no-repeat;
@@ -38,18 +38,20 @@ $custom-grid: (
 		width: 150px;
 		height: 150px;
 	}
-	.gallery-button{
+	.gallery-button{//initial upload images button
 		@include grid-column(12,$custom-grid);
-		font-size: 1.5em;
-		font-weight: 400;
+		font-size: 1.2em;
+		font-weight: 600;
+		padding-right: 95px;
 		border:3px dashed #aaa;
 		height: 173px;
 		margin-top: 10px;
 		cursor: pointer;
 		background-color: white;
-		color: black;
+		color: #aaa;
+		letter-spacing: 1.3px;
 	}
-	.image-upload{
+	.image-upload{ //invisible input button
 		@include grid-shift(6.5);
 		margin-top: 210px;
 		position: absolute;
@@ -58,7 +60,7 @@ $custom-grid: (
 
 	}
 
-	.add-images{
+	.add-images{//add images button with + symbol
 		@include grid-shift(9.5,$custom-grid);
 		cursor: pointer;
 	}
@@ -80,12 +82,12 @@ $custom-grid: (
 	.note-submit{
 		@include grid-column(2);
 		@include grid-push(-3);
-		margin-top: 800px;
-		position: absolute;
+		margin-top: 780px;
 	}	
 
+
 	.ql-editor{
-		height: 450px;
+		height: 46vh;
 	}
 	.image-upload{
 		@include grid-column(3);
