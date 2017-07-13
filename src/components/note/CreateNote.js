@@ -26,7 +26,8 @@ class CreateNote extends React.Component{
     		  lightboxIsOpen:false,
     		  thumbnailsIsopen: true,
     		  backDrop: true,
-          images: []
+          images: [],
+          galleryButton: true
         }
   	}
 	
@@ -61,6 +62,10 @@ class CreateNote extends React.Component{
     images.push(file);
     this.setState({images:images})
   }
+
+  disableGalleryButton(){
+    this.setState({galleryButton: false})
+  }
 	render(){
     console.log(this.state.images)
 		var quillModules = {
@@ -79,26 +84,24 @@ class CreateNote extends React.Component{
    			'link', 'image'
   		];
 		var entry = this.state.value;
+    if(!this.state.galleryButton){
+      var galleryButton=<Gallery images={this.state.images}/>;
+      var imageUpload=<div><div className="add-images"><p className="add-images-sign">+</p><p className="add-images-text">Add New Goal</p></div><input type='file' className="image-upload"  onChange={this.onFileSelected.bind(this)}/></div>
+    }
+    else{
+      var galleryButton=<button className="gallery-button" onClick={this.disableGalleryButton.bind(this)}><img src="upload.svg" className="upload-icon" />UPLOAD IMAGES</button>
+    }
 		return(
 			<div>
 				<Navbar  isLight={true}/>
 				<TopBar title="CREATE MEMORY" />
 				<div className="create-form">
-            <Gallery images={this.state.images}/> 
-					  <Lightbox
-        		images={[{ src: 'https://facebook.github.io/react/img/logo_og.png'}]}
-        		isOpen={this.state.lightboxIsOpen}
-        		onClickPrev={this.gotoPrevious}
-        		onClickNext={this.gotoNext}
-        		onClose={this.closeLightbox.bind(this)}
-        		showThumbnails={this.state.thumbnailsIsopen}
-        		backdropClosesModal={this.state.backDrop}
-      			/>
-      			<input type='file' className="image-upload"  onChange={this.onFileSelected.bind(this)}/>
 					  <div className="text-editor">
 						  <input type="text" placeholder="Enter Title"/>
 						  <ReactQuill value={this.props.entry} onChange={this.handleChange.bind(this)}  theme="snow" modules={quillModules} placeholder="Start Writing" formats={formats}/>
-					  </div>
+              {galleryButton} 
+              {imageUpload}
+            </div>
 					  <button className = "note-submit" onClick={this.handleSubmit.bind(this)}>Submit</button>
 				</div>
 			</div>

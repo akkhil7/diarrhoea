@@ -19,6 +19,7 @@ class GalleryItem extends React.Component{
    		if(file){
       		reader.readAsDataURL(file);
     	}
+    	
 	}
 	render(){
         var getImagePath = this.state.backgroundUrl
