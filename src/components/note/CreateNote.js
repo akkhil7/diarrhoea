@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { verifyCurrentUser } from '../../actions/userActions';
 import { createNote } from '../../actions/noteActions';
 import { quillUpdate } from '../../actions/noteActions';
+import { uploadImage } from '../../actions/imageActions';
 import store from '../../store.js';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -10,6 +11,9 @@ import Navbar from '../navbar/Navbar';
 import TopBar from '../navbar/TopBar.js';
 import Lightbox from 'react-images';
 import Gallery from './Gallery';
+import API from '../API';
+
+
 const mapStateToProps = (store) => {
   return {
     currentUser: store.user.currentUser,
@@ -42,6 +46,7 @@ class CreateNote extends React.Component{
 	
 	handleSubmit(){
 		var entry = this.props.entry;
+    var files = this.state.images
 		console.log(entry);
 		var id = this.props.currentUser.id;
 		var note= {
@@ -49,7 +54,8 @@ class CreateNote extends React.Component{
 			user_id: id 
 		}
 		console.log(note);
-		this.props.dispatch(createNote(note));
+    this.props.dispatch(uploadImage(files))
+    // this.props.dispatch(createNote(note));
 	}
 
 	closeLightbox(){
@@ -58,6 +64,7 @@ class CreateNote extends React.Component{
 
   onFileSelected(e){
     var file = e.target.files[0]
+    // this.props.dispatch(uploadImage(file))
     var images = this.state.images;
     images.push(file);
     this.setState({images:images})
