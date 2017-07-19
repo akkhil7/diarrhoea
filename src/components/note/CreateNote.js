@@ -31,7 +31,8 @@ class CreateNote extends React.Component{
     		  thumbnailsIsopen: true,
     		  backDrop: true,
           images: [],
-          galleryButton: true
+          galleryButton: true,
+          mood: "happy"
         }
   	}
 	
@@ -73,6 +74,13 @@ class CreateNote extends React.Component{
   disableGalleryButton(){
     this.setState({galleryButton: false})
   }
+
+  mood(){
+      if(this.state.mood=="happy")
+        this.setState({mood:"sad"})
+      else
+        this.setState({mood:"happy"})
+  }
 	render(){
     console.log(this.state.images)
 		var quillModules = {
@@ -98,6 +106,12 @@ class CreateNote extends React.Component{
     else{
       var galleryButton=<button className="gallery-button" onClick={this.disableGalleryButton.bind(this)}><img src="cloud.svg" className="upload-icon" />UPLOAD IMAGES</button>
     }
+    if(this.state.mood=="happy"){
+      var mood=<p className="mood-instruction">This is a happy memory</p>
+    }
+    else{
+      var mood=<p className="mood-instruction">This is a sad memory</p>
+    }
 		return(
 			<div>
 				<Navbar  isLight={true}/>
@@ -108,6 +122,14 @@ class CreateNote extends React.Component{
 						  <ReactQuill value={this.props.entry} onChange={this.handleChange.bind(this)}  theme="snow" modules={quillModules} placeholder="Start Writing" formats={formats}/>
               {galleryButton} 
               {imageUpload}
+              <ul className="mood-button">
+              <li className="tg-list-item">
+                  <input className="tgl tgl-ios" id="cb2" type="checkbox" onClick={this.mood.bind(this)}/>
+                  <label className="tgl-btn" data-tg-off="Sad" data-tg-on="Happy" htmlFor="cb2"></label>
+              </li>
+              </ul>
+              {mood}
+
             </div>
 					  <button className = "note-submit" onClick={this.handleSubmit.bind(this)}>Submit</button>
 				</div>

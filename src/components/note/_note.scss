@@ -5,11 +5,11 @@ $custom-grid: (
 
 .create-form {
 	@include grid-column(10, $custom-grid);
-	@include grid-shift(1.5, $custom-grid);
+	@include grid-push(1.5, $custom-grid);
 
 	.text-editor{
-		@include grid-column(8);
-		@include grid-shift(2);
+		@include grid-column(8,$custom-grid);
+		@include grid-shift(2,$custom-grid);
 		margin-top: 20px;
 		height: 100%;
 	}
@@ -53,7 +53,9 @@ $custom-grid: (
 	}
 	.image-upload{ //invisible input button
 		@include grid-shift(6.5);
+		@include grid-column(3,$custom-grid);
 		margin-top: 210px;
+		height: 30px;
 		position: absolute;
 	 	opacity: 0;
 	 	cursor: pointer;
@@ -61,32 +63,43 @@ $custom-grid: (
 	}
 
 	.add-images{//add images button with + symbol
-		@include grid-shift(9.5,$custom-grid);
-		cursor: pointer;
+		@include grid-column(6,$custom-grid);
+		@include grid-push(9.8,$custom-grid);
+		height: 100px;
 	}
 	.add-images-sign{
 	  color: #00a2ff;
       font-size: 3em;
       @include grid-column(1,$custom-grid);
-      @include grid-push(0.5,$custom-grid);
-       }
-
-    .add-images-text{
-      @include grid-column(3);
-      @include grid-push(-0.5)
-      margin-top: 25px;
-      color: #00a2ff;
+      @include grid-push(0.3,$custom-grid);
+      cursor: pointer;
 
     }
 
-	.note-submit{
+    .add-images-text{
+      @include grid-column(3,$custom-grid);
+      @include grid-push(0.5,$custom-grid);
+      margin-top: 25px;
+      color: #00a2ff;
+      cursor: pointer;
+
+
+    }
+
+	.note-submit{//submiting notes nad images button
 		@include grid-column(2);
-		@include grid-push(-3);
-		margin-top: 780px;
+		@include grid-push(-2.7);
+		margin-top: 830px;
+		position: absolute;
 	}	
 
-
-	.ql-editor{
+	.mood-instruction{
+		@include grid-push(1);
+		margin-top: -30px;
+		position: absolute;
+		color: #00a2ff;
+	}
+	.ql-editor{//quill editor
 		height: 46vh;
 	}
 	.image-upload{
@@ -96,6 +109,98 @@ $custom-grid: (
 	.lightbox{
 		@include grid-column(5)
 	}
+
+	.mood-button{
+		margin-top: 200px;
+	}
+	.tgl {
+  display: none;
+
+  // add default box-sizing for this scope
+  &,
+  &:after,
+  &:before,
+  & *,
+  & *:after,
+  & *:before,
+  & + .tgl-btn {
+    box-sizing: border-box;
+    &::selection {
+      background: none;
+    }
+  }
+
+  + .tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    &:after,
+    &:before {
+      position: relative;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%;
+    }
+
+    &:after {
+      left: 0;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:checked + .tgl-btn:after {
+    left: 50%;
+  }
+}
+  .tgl-ios {
+  + .tgl-btn {
+    background: #fbfbfb;
+    border-radius: 2em;
+    padding: 2px;
+    transition: all .4s ease;
+    border: 1px solid #e8eae9;
+    &:after {
+      border-radius: 2em;
+      background: #fbfbfb;
+      transition:
+        left .3s cubic-bezier(
+          0.175, 0.885, 0.320, 1.275
+        ),
+        padding .3s ease, margin .3s ease;
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,.1),
+        0 4px 0 rgba(0,0,0,.08);
+    }
+
+    &:hover:after {
+      will-change: padding;
+    }
+
+    &:active {
+      box-shadow: inset 0 0 0 2em #e8eae9;
+      &:after {
+        padding-right: .8em;
+      }
+    }
+  }
+
+  &:checked + .tgl-btn {
+    background: #00a2ff;
+    &:active {
+      box-shadow: none;
+      &:after {
+        margin-left: -.8em;
+      }
+    }
+  }
 }
 
-
+}
