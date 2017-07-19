@@ -34,6 +34,7 @@ var API = {
 		var url = url;
 		var _this = this;
 		Request.get(url)
+    .set('Authorization', 'Token token=' + localStorage.diary_user_token)        
 		.end((err,res) => {
 			_this.handleRequest(res,success,failure)
 		})
@@ -43,6 +44,7 @@ var API = {
 		var _this = this;
 		console.log(data)
         Request.post(url)
+        .set('Authorization', 'Token token=' + localStorage.diary_user_token)            
         .send(data)
         .end(function (err,res) {
         	_this.handleRequest(res,success,failure)
@@ -53,6 +55,7 @@ var API = {
        var url = url;
        var _this = this;
        Request.put(url,data)
+       .set('Authorization', 'Token token=' + localStorage.diary_user_token)         
        .end((err,res) => {
        	    _this.handleRequest(res,success,failure)
        })
